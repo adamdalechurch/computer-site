@@ -31,7 +31,7 @@ export const InfoBox = (props) => {
   return (
     <Grid item xs={12} md={4}>
         <div className={classes.infoBox}>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography gutterBottom variant="h3" component="h2">
             {props.title}
         </Typography>
         <Typography variant="body2" component="p" className={classes.para}>

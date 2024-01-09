@@ -116,7 +116,7 @@ export default function Footer( { config } ) {
         </Typography>
       </FooterColumn>
       <FooterColumn>
-        <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
+        <Avatar alt="Computer Site" src="/vob.webp" className={classes.avatar} />
       </FooterColumn>
       </Grid>
       </Container>

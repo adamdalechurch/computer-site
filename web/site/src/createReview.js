@@ -6,9 +6,9 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { shadows } from '@material-ui/system';
 import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
-
+ 
 const useStyles = makeStyles((theme) => ({
-  heading: {
+  heading: { 
   	fontSize: 30,
   	color: "white",
   	margin: 15
