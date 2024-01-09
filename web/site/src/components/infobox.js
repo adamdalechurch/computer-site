@@ -4,11 +4,13 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 const makeInfoBoxStyle = (theme) => ({
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
+    border: '1px solid #ccc',
+    borderRadius: 5,
     background: theme.palette.grey.secondary,
 });
 
@@ -23,17 +25,17 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const InfoBox = ({title, text, isAlt = false}) => {
+export const InfoBox = (props) => {
   const classes = useStyles();
 
   return (
     <Grid item xs={12} md={4}>
         <div className={classes.infoBox}>
         <Typography gutterBottom variant="h5" component="h2">
-            {title}
+            {props.title}
         </Typography>
         <Typography variant="body2" component="p" className={classes.para}>
-            {text}
+            {props.children}
         </Typography>
         </div>
     </Grid>

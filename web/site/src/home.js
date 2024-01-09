@@ -60,6 +60,7 @@ export default function Home() {
       <Card>
       <CardContent>
       <Grid container spacing={3}>
+        {/* Featured card 1 */}
         <Grid item xs={12} md={6}>
           <Card>
           <CardMedia className={classes.media} image={ femaleUsingLaptop } />
@@ -78,6 +79,8 @@ export default function Home() {
             </CardContent>
           </Card>
         </Grid>
+
+        {/* Featured card 2 */}
         <Grid item xs={12} md={6}>
           <Card>
           <CardMedia className={classes.media} image={ techPeopleWorking } />
@@ -96,23 +99,47 @@ export default function Home() {
             </CardContent>
           </Card>
         </Grid>
+
+        {/* Schedule an appointment  */}
         <Grid item xs={12} md={12} >
           <Button variant="contained" color="secondary" className={classes.scheduleButton}>
             Schedule an Appointment
           </Button>
         </Grid>
-        <InfoBox 
-          title="Computer Repair" 
-          text="We specialize in providing relWe specialize in providing reliable, cost-effective computer repair seiable, cost-effective computer repair seWe specialize in providing reliable, cost-effective computer repair services." 
-        />
-        <InfoBox 
-          title="Computer Repair" 
-          text="We specialize in providing reliaWe specialize in providing reliable, cost-effective computer repair seble, cost-effective computer repair seWe specialize in providing reliable, cost-effective computer repair services." 
-        />
-        <InfoBox 
-          title="Computer Repair" 
-          text="We specialize in providing reliable, cost-effective computer repair seWe specialize in providing reliable, cost-effective computer repair seWe specialize in providing reliable, cost-effective computer repair services." 
-        />
+
+        {/* Info Boxes */}
+        <InfoBox title="Computer Repair">
+          <Typography variant="body2" component="p" className={classes.para}>
+            We specialize in providing reliable, cost-effective computer repair services.
+            We understand the importance of having reliable, 
+            efficient technology, and believe that technology should enhance your
+            life and not be a source of frustration. 
+            Our experienced technicians are dedicated to helping you get 
+            the most from your technology.
+          </Typography>
+        </InfoBox>
+
+        <InfoBox title="Computer Repair">
+          <Typography variant="body2" component="p" className={classes.para}>
+            We specialize in providing reliable, cost-effective computer repair services.
+            We understand the importance of having reliable, 
+            efficient technology, and believe that technology should enhance your
+            life and not be a source of frustration. 
+            Our experienced technicians are dedicated to helping you get 
+            the most from your technology.
+          </Typography>
+        </InfoBox>
+
+        <InfoBox title="Computer Repair">
+          <Typography variant="body2" component="p" className={classes.para}>
+            We specialize in providing reliable, cost-effective computer repair services.
+            We understand the importance of having reliable, 
+            efficient technology, and believe that technology should enhance your
+            life and not be a source of frustration. 
+            Our experienced technicians are dedicated to helping you get 
+            the most from your technology.
+          </Typography>
+        </InfoBox>
        </Grid>
       </CardContent>
      </Card>

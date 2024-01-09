@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
   	margin: 15
   }
 }));
-
 function addMovie(id) {
   fetch("https://popcritic.herokuapp.com/add/"+id,{method: "POST", headers: {token: window.localStorage.getItem("token")}}).then(x=>x.text()).then(function() {
   	window.location.href = "/movie/"+id;

@@ -1,14 +1,11 @@
 import React, { useEffect, useState, useScrollTrigger } from "react";
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Container } from "@material-ui/core";
 import PhoneIcon from '@material-ui/icons/Phone';
-import Avatar from '@material-ui/core/Avatar';
 import Link from '@material-ui/core/Link';
-import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -17,6 +14,9 @@ import { Button } from "@material-ui/core";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/LinkedIn';
+import { FooterColumn } from "./components/footerColumn";
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   seperator: {
@@ -24,16 +24,16 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.white.main,
   },
   mainLogo: {
-    width: theme.spacing(50),
+    width: theme.spacing(0),
     height: theme.spacing(50),
     background: 'transparent',
     marginTop: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
-      width: 300,
-    }
   },
   footer: {
     flexGrow: 1,
+    background: theme.palette.base.main,
+    height: theme.spacing(30),
+    color: theme.palette.white.main,
   },
   bar: {
     background: theme.palette.base.main,
@@ -41,20 +41,15 @@ const useStyles = makeStyles((theme) => ({
   link: {
     color: "white",
     margin: 15,
-    [theme.breakpoints.down('md')]: {
-      display: "none"
-    }
+    display: 'block',
   },
   bottomSocials: {
+  // make this div float in the center:
     display: 'flex',
-    alignItems: 'bottom',
-    justifyContent: 'bottom',
+    justifyContent: 'center',
+    alignItems: 'center',
+
     fontSize:theme.spacing(1),
-    // move to the left slightly:
-    marginRight: theme.spacing(4),
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
   },
   facebook: {
     color: '#3b5998',
@@ -67,103 +62,64 @@ const useStyles = makeStyles((theme) => ({
   instagram: {
     color: '#e4405f',
     width:30, 
+  },
+  avatar: {
+    border: "2px solid white",
+    width: theme.spacing(16),
+    height: theme.spacing(16),
+    margin: "auto",
+  },
+  bottomMenu: {
+    width: "100%", 
+    paddingLeft: theme.spacing(6),
   }
 }));
 
-export default function SearchAppBar( { config } ) {
+export default function Footer( { config } ) {
   const classes = useStyles();
   const theme = useTheme();
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setDrawerOpen(open);
-  };
-
-  function search(e) {
-    if (e.keyCode==13) window.location.href="/search/"+e.target.value
-  }
 
   return (
-    <div className={classes.header}>
-      <AppBar position="static" className={classes.bar}>
-        <Toolbar>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link href="/" className={classes.link}>HOME</Link>
-            <Link href="/business-support" className={classes.link}>BUSINESS SUPPORT</Link>
-            <Link href="/it-consulting" className={classes.link}>IT CONSULTING</Link>
-            <Link href="/home-solutions" className={classes.link}>HOME SOLUTIONS</Link>
-            <Link href="/about" className={classes.link}>ABOUT</Link>
-            <Link href="/contact" className={classes.link}>CONTACT</Link>
-          </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <div className={classes.callContainer}>
-              <Button className={classes.phone} href={"tel:"+config.phone}>
-              <PhoneIcon className={classes.phoneIcon} />
-                {config.phone}
-              </Button>
-            </div>
-              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-                <MenuIcon />
-              </IconButton>
-          </Box>
-        </Toolbar>       
-      </AppBar>
-      <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
-          <div
-            className={classes.list}
-            role="presentation"
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
-            <List>
-              {['Home', 'Search Movie'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemText primary={text} />
-                </ListItem>
-              ))}
-            </List>
-          </div>
-        </Drawer>
-        <div className={classes.subheader}>
-          {/* <AppBar position="static" className={classes.subheaderBar}>
-            <Toolbar>
-            <Link href="/">
-          <Avatar alt="Computer Solutions" src="/logo.svg" className={classes.avatar} />
-          </Link>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Computer Solutions
-          </Typography>
-            </Toolbar>
-          </AppBar> */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <AppBar position="static" className={classes.subheaderBar}>
-            <Toolbar>
-            <Link href="/">
-          <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
-          </Link>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Computer Site
-          </Typography>
-            </Toolbar>
-          </AppBar>
-          </Box>
+    <div className={classes.footer}>
+      <Container>
+      <Grid container spacing={3}>
 
-        <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-            <div className={classes.topSocials}>
-              <Link href="config.facebook" className={classes.facebook}><FacebookIcon /></Link>
-              <Link href="config.twitter" className={classes.twitter}><TwitterIcon /></Link>
-              <Link href="config.instagram" className={classes.instagram}><InstagramIcon /></Link>
-            </div>
-          </Box>
-          </div>
-          <div className={classes.seperator}>
-            {/* <div className={classes.mainLogoContainer}>
-                 <Avatar alt="Computer Solutions" src="/logo.svg" className={classes.mainLogo} />
-            </div> */}
-          </div> 
+      <FooterColumn>
+      {/*Bottom Menu */}
+      <div className={classes.bottomMenu}>
+          <Link href="/business-support" className={classes.link}>BUSINESS SUPPORT</Link>
+          <Link href="/it-consulting" className={classes.link}>IT CONSULTING</Link>
+          <Link href="/home-solutions" className={classes.link}>HOME SOLUTIONS</Link>
+          <Link href="/about" className={classes.link}>ABOUT</Link>
+          <Link href="/contact" className={classes.link}>CONTACT</Link> 
+        </div>
+      </FooterColumn>
+
+
+      <FooterColumn>
+        {/* Bottom Socials */}
+        <div className={classes.bottomSocials}>
+          <IconButton aria-label="facebook" className={classes.facebook}>
+            <FacebookIcon />
+          </IconButton>
+          <IconButton aria-label="twitter" className={classes.twitter}>
+            <TwitterIcon />
+          </IconButton>
+          <IconButton aria-label="instagram" className={classes.instagram}>
+            <InstagramIcon />
+          </IconButton>
+        </div>
+
+        {/* Bottom Copyright */}
+        <Typography variant="body2" color="inherit" align="center">
+          © 2020 Computer
+        </Typography>
+      </FooterColumn>
+      <FooterColumn>
+        <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
+      </FooterColumn>
+      </Grid>
+      </Container>
     </div>
   );
 }
