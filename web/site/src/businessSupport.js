@@ -9,16 +9,14 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Container, useTheme } from "@material-ui/core";
-import femaleUsingLaptop from './female_using_laptop.webp';
-import techPeopleWorking from './tech_people_working.webp';
 import { InfoBox } from './components/infobox';
 import { InfoCard } from './components/infocard';
-import onSignTechSupport from './on_site_tech_support.webp';
-import networking from './networking.webp';
-import backupSolutions from './backup_solutions.webp';
-import cyberSecurity from './cyber_security.webp';
-import training from './training.webp';
-import remoteSupport from './remote_support.webp';
+import onSignTechSupport from './img/on_site_tech_support.webp';
+import networking from './img/networking.webp';
+import backupSolutions from './img/backup_solutions.webp';
+import cyberSecurity from './img/cyber_security.webp';
+import training from './img/training.webp';
+import remoteSupport from './img/remote_support.webp';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -44,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 export default function BusinessSupport() {
   const classes = useStyles();
   const theme = useTheme();
-  const [movies, setMovies] = useState(0);
 
   return (
     <div align="center">

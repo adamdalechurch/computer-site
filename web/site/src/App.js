@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import SearchAppBar from './header';
 import Home from './home';
 import BusinessSupport from './businessSupport';
+import ITConsulting from './itConsulting';
+import HomeSolutions from './homeSolutions';
+// import About from './about';
+// import Contact from './contact';
+// import PrivacyPolicy from './privacyPolicy';
+// import TermsOfService from './termsOfService';
 import Footer from './footer';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
@@ -37,8 +43,24 @@ const config = {phone:"800-555-5555"};
           <Route path="/business-support">
             <BusinessSupport />
           </Route>
-          {/* to do: add routes: */}
-  
+          <Route path="/it-consulting">
+            <ITConsulting />
+          </Route>
+          <Route path="/home-solutions">
+            <HomeSolutions />
+          </Route>
+          {/* <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact config={config}/>
+          </Route>
+          <Route path="/privacy-policy">
+            <PrivacyPolicy />
+          </Route>
+          <Route path="/terms-of-service">
+            <TermsOfService />
+          </Route> */}
         </Switch>
     	</Router>
       <Footer config={config}/>

@@ -201,14 +201,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  // parallax: {
-  //   backgroundImage: `url(https://images.pexels.com/photos/1340504/pexels-photo-1340504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
-  //   minHeight: '500px',
-  //   backgroundAttachment: 'fixed',
-  //   backgroundPosition: 'center',
-  //   backgroundRepeat: 'no-repeat',
-  //   backgroundSize: 'cover',
-  // },
 
   // translate paralax up a smidge
   parallax: {
@@ -219,11 +211,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     marginBottopm: theme.spacing(2),
-    // animation: 'parallax 1s linear infinite',
-    // make it not infinite
-    // animation: 'parallax 1s linear',
   },
-  
 }));
 
 export default function SearchAppBar( { config } ) {
@@ -284,16 +272,6 @@ export default function SearchAppBar( { config } ) {
           </div>
         </Drawer>
         <div className={classes.subheader}>
-          {/* <AppBar position="static" className={classes.subheaderBar}>
-            <Toolbar>
-            <Link href="/">
-          <Avatar alt="Computer Solutions" src="/logo.svg" className={classes.avatar} />
-          </Link>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Computer Solutions
-          </Typography>
-            </Toolbar>
-          </AppBar> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           <AppBar position="static" className={classes.subheaderBar}>
             <Toolbar>
@@ -301,7 +279,7 @@ export default function SearchAppBar( { config } ) {
           <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
           </Link>
           <Typography className={classes.title} variant="h6" noWrap>
-            Computer Site
+            Veteran Computer Solutions
           </Typography>
             </Toolbar>
           </AppBar>
@@ -316,9 +294,6 @@ export default function SearchAppBar( { config } ) {
           </Box>
           </div>
           <div className={classes.seperator}>
-            {/* <div className={classes.mainLogoContainer}>
-                 <Avatar alt="Computer Solutions" src="/logo.svg" className={classes.mainLogo} />
-            </div> */}
           </div> 
     </div>
   );
