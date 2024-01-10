@@ -41,8 +41,17 @@ export default function HomeSolutions() {
     <div align="center">
       <Container>
         <Typography variant="h2" className={classes.pageHeader}>
-          IT Consulting
+          PICKUP - REMOTE - IN-HOME SERVICE AVAILABLE
         </Typography>
+        <Typography variant="body1" className={classes.para}>
+          Veteran Computer Solutions offers a comprehensive range of computer
+          repair services to help you get your home technology back up and running. 
+          From Virus Removal and Data Recovery to Hardware and Software Installation and Upgrade.
+          Our computer repair service provides fast, reliable assistance with a 
+          variety of hardware and software issues. We have the tools and know-how to diagnose any
+          problem and provide the best solutions reliably and quickly. No matter the size of 
+          the job, we’re here to make sure your home technology is working for you.
+        </Typography> 
         <Grid container spacing={3} justify="center" alignItems="center" alignContent="center">
           <InfoCard
             title="Repairs and Upgrades"

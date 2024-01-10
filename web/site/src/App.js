@@ -4,7 +4,8 @@ import Home from './home';
 import BusinessSupport from './businessSupport';
 import ITConsulting from './itConsulting';
 import HomeSolutions from './homeSolutions';
-// import About from './about';
+import About from './about';
+import Contact from './contact';
 // import Contact from './contact';
 // import PrivacyPolicy from './privacyPolicy';
 // import TermsOfService from './termsOfService';
@@ -49,13 +50,13 @@ const config = {phone:"800-555-5555"};
           <Route path="/home-solutions">
             <HomeSolutions />
           </Route>
-          {/* <Route path="/about">
+          <Route path="/about">
             <About />
           </Route>
-          <Route path="/contact">
+           <Route path="/contact">
             <Contact config={config}/>
           </Route>
-          <Route path="/privacy-policy">
+          {/*<Route path="/privacy-policy">
             <PrivacyPolicy />
           </Route>
           <Route path="/terms-of-service">
