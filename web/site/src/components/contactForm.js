@@ -59,7 +59,7 @@ const ContactForm = () => {
         Contact Us
       </Typography>    
       <Typography variant="body1" className={classes.para}>
-        At Veteran Computer Solutions our first priority 
+        At {process.env.REACT_APP_SITE_NAME} our first priority 
         is ensuring your technology works for you
         and that we offer the best support possible.
       </Typography>

@@ -57,11 +57,11 @@ export default function About() {
   <Container>
     <div className={classes.greyBox1}>
       <Typography variant="h4" className={classes.pageHeader}>
-        About Veteran Computer Solutions
+        About {process.env.REACT_APP_SITE_NAME}
       </Typography>
       <div className={classes.seperator}></div>
       <Typography variant="body2" component="p" className={classes.para}>
-        At Veteran Computer Solutions, we believe that 
+        At {process.env.REACT_APP_SITE_NAME}, we believe that 
         technology should enhance your life, not be frustrating. 
         Our team of experienced IT professionals is 
         dedicated to helping you get the most from your 

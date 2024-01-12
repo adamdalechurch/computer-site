@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   seperator: {
     height: theme.spacing(8),
     background: theme.palette.white.main,
+    [theme.breakpoints.down('sm')]: {
+      height: theme.spacing(1),
+    }
   },
   mainLogoContainer: {
     display: 'flex',
@@ -35,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(50),
     background: 'transparent',
     marginTop: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
-      width: 300,
+    [theme.breakpoints.down('sm')]: {
+      width: 1900,
     }
   },
   header: {
@@ -47,12 +50,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    fontSize: 22,
+    fontSize: theme.spacing(4),
     fontWeight: "bolder",
     color: theme.palette.black.main,
-    [theme.breakpoints.up('md')]: {
-      fontSize: 30,
-    },
   },
   login: {
     margin: 20,
@@ -130,11 +130,22 @@ const useStyles = makeStyles((theme) => ({
     fontSize:theme.spacing(1),
     // move to the left slightly:
     marginRight: theme.spacing(4),
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
   },
-
+  topSocialsMobile: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 'auto',
+    fontSize:theme.spacing(2),
+    // move to the left slightly:
+    marginRight: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      display: 'none'
+    }
+  },
   // colors for the social icons
   facebook: {
     color: '#3b5998',
@@ -146,12 +157,10 @@ const useStyles = makeStyles((theme) => ({
     width: 30, 
 
   },
-
   instagram: {
     color: '#e4405f',
     width:30, 
   },
-
   callContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -175,24 +184,32 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
   },
-   subheader: {
-    background: theme.palette.grey.main,
+  subheader: {
     color: theme.palette.black.main,
     height: theme.spacing(12),
+    maxWidth: '1280px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 'auto',
+    padding: theme.spacing(2),
     [theme.breakpoints.down('xs')]: {
       height: theme.spacing(10),
+      padding: theme.spacing(1),
+      marginBottom: 0
     }
   },
   subheaderBar: {
     background: 'transparent',
     boxShadow: 'none',
     border: 'none',
-    color: 'black'
+    color: 'black',
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
   },
-
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
@@ -219,8 +236,12 @@ const useStyles = makeStyles((theme) => ({
 
   drawerLink: {
     color: theme.palette.black.main,
-    margin: 15,
+    textDecoration: "none",
+    fontSize: theme.spacing(4),
+    margin: theme.spacing(4),
     display: 'block',
+    color: 'black',
+    width: '100%',
   },
 }));
 
@@ -251,7 +272,7 @@ export default function Header( { config } ) {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <div className={classes.callContainer}>
-              <Button className={classes.phone} href={"tel:"+config.phone}>
+              <Button className={classes.phone} href={"tel:"+process.env.REACT_APP_SITE_PHONE}>
               <PhoneIcon className={classes.phoneIcon} />
                 {config.phone}
               </Button>
@@ -270,11 +291,11 @@ export default function Header( { config } ) {
           onKeyDown={toggleDrawer(false)}
         >
           <List>
-            {/* {Routes.map((route, index) => (
-              <ListItem button key={route.name}>
-                <NavLink exact to={route.path} className={classes.drawerLink} activeClassName={classes.activeLink}> {route.name} </NavLink>
-              </ListItem>
-            ))} */}
+            {/* <NavLink exact to="/" className={classes.drawerLink} activeClassName={classes.activeLink}> Home </NavLink> */}
+            {Routes.map((route, index) => (
+                <NavLink exact to={route.path} className={classes.drawerLink}
+                 activeClassName={classes.activeLink}> {route.title} </NavLink>
+            ))} 
           </List>  
         </div>
         </Drawer>
@@ -283,16 +304,16 @@ export default function Header( { config } ) {
             <AppBar position="static" className={classes.subheaderBar}>
               <Toolbar>
               <Link href="/">
-                <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
+                <Avatar alt={process.env.REACT_APP_SITE_NAME} src="/logo.svg" className={classes.avatar} />
                 </Link>
                 <Typography className={classes.title} variant="h6" noWrap>
-              Veteran Computer Solutions
+                  {process.env.REACT_APP_SITE_NAME}
                 </Typography>
               </Toolbar>
             </AppBar>
           </Box>
 
-          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+          <Box>
             <div className={classes.topSocials}>
               <Link href="config.facebook" className={classes.facebook}><FacebookIcon /></Link>
               <Link href="config.twitter" className={classes.twitter}><TwitterIcon /></Link>
@@ -300,8 +321,13 @@ export default function Header( { config } ) {
             </div>
           </Box>
         </div>
+        <div className={classes.topSocialsMobile}>
+          <Link href="config.facebook" className={classes.facebook}><FacebookIcon /></Link>
+          <Link href="config.twitter" className={classes.twitter}><TwitterIcon /></Link>
+          <Link href="config.instagram" className={classes.instagram}><InstagramIcon /></Link>
+        </div>
       <div className={classes.seperator}>
-    </div> 
-    </div>
+      </div> 
+  </div>
   );
 }

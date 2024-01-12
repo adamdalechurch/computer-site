@@ -42,7 +42,7 @@ export default function ITConsulting() {
         </Typography>
         {/* the paragraph */}
         <Typography variant="body1" className={classes.para}>
-          Veteran Computer Solutions is here to help take the guesswork 
+          {process.env.REACT_APP_SITE_NAME} is here to help take the guesswork 
           out of your tech challenges. With years of experience in a wide range 
           of technical domains, our team of experts are ready to offer you the 
           highest quality IT consulting services. From IT strategy and planning 

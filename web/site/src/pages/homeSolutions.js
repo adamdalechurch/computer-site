@@ -46,7 +46,7 @@ export default function HomeSolutions() {
           PICKUP - REMOTE - IN-HOME SERVICE AVAILABLE
         </Typography>
         <Typography variant="body1" className={classes.para}>
-          Veteran Computer Solutions offers a comprehensive range of computer
+          {process.env.REACT_APP_SITE_NAME} offers a comprehensive range of computer
           repair services to help you get your home technology back up and running. 
           From Virus Removal and Data Recovery to Hardware and Software Installation and Upgrade.
           Our computer repair service provides fast, reliable assistance with a 

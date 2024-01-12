@@ -63,8 +63,8 @@ const config = {phone:"800-555-5555"};
             <TermsOfService />
           </Route> */}
         </Switch>
+        <Footer config={config}/>
     	</Router>
-      <Footer config={config}/>
     	</div>
       </ThemeProvider>
     );

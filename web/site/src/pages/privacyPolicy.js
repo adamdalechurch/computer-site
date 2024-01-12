@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       <Card className={classes.about}>
         <CardContent>
           <Typography variant="body2" component="p" className={classes.para}>
-            Veteran Computer Solutions is a Veteran owned and operated business. 
+            {process.env.REACT_APP_SITE_NAME} is a Veteran owned and operated business. 
             We are dedicated to providing reliable, cost-effective IT solutions for your home or business.
             We understand the importance of having reliable, efficient technology, and believe that technology should enhance your life and not be a source of frustration. 
             Our experienced technicians are dedicated to helping you get the most from your technology.
