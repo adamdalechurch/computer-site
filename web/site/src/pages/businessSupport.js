@@ -9,14 +9,14 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Container, useTheme } from "@material-ui/core";
-import { InfoBox } from './components/infobox';
-import { InfoCard } from './components/infocard';
-import onSignTechSupport from './img/on_site_tech_support.webp';
-import networking from './img/networking.webp';
-import backupSolutions from './img/backup_solutions.webp';
-import cyberSecurity from './img/cyber_security.webp';
-import training from './img/training.webp';
-import remoteSupport from './img/remote_support.webp';
+import { InfoBox } from '../components/infobox';
+import { InfoCard } from '../components/infocard';
+import onSignTechSupport from '../img/on_site_tech_support.webp';
+import networking from '../img/networking.webp';
+import backupSolutions from '../img/backup_solutions.webp';
+import cyberSecurity from '../img/cyber_security.webp';
+import training from '../img/training.webp';
+import remoteSupport from '../img/remote_support.webp';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    textAlign: "left",
   },
 }));
 

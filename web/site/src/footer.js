@@ -32,8 +32,13 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     flexGrow: 1,
     background: theme.palette.base.main,
-    height: theme.spacing(30),
+    height: theme.spacing(35),
     color: theme.palette.white.main,
+
+    // on xs, double the height
+    [theme.breakpoints.down('xs')]: {
+      height: theme.spacing(70),
+    } 
   },
   bar: {
     background: theme.palette.base.main,
@@ -66,13 +71,29 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     border: "2px solid white",
     width: theme.spacing(16),
-    height: theme.spacing(16),
+    height: "auto",
     margin: "auto",
   },
   bottomMenu: {
     width: "100%", 
-    paddingLeft: theme.spacing(6),
-  }
+    textAlign: "left",
+    // center on mobile:
+    [theme.breakpoints.down('xs')]: {
+      textAlign: "center",
+    }
+  },
+  policyLinks: {
+    textAlign: "center",
+    marginTop: 10,
+    marginBottom: 15,
+    width: "100%",
+    display: "block",
+  },
+  whiteHyperlink: {
+    color: "white",
+    margin: 5,
+    display: 'inline-block',
+  },
 }));
 
 export default function Footer( { config } ) {
@@ -117,9 +138,22 @@ export default function Footer( { config } ) {
       </FooterColumn>
       <FooterColumn>
         <Avatar alt="Computer Site" src="/vob.webp" className={classes.avatar} />
+        <div className={classes.policyLinks}>
+        <Link href="/privacy-policy" class={classes.whiteHyperlink}>
+          <Typography >
+            Privacy Policy
+          </Typography>
+        </Link>
+        /
+        <Link href="/terms-of-service" class={classes.whiteHyperlink}>
+          <Typography>
+            Terms of Service
+          </Typography>
+        </Link> 
+      </div>
       </FooterColumn>
       </Grid>
-      </Container>
-    </div>
+    </Container>
+  </div>
   );
 }

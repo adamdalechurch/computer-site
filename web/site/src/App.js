@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SearchAppBar from './header';
-import Home from './home';
-import BusinessSupport from './businessSupport';
-import ITConsulting from './itConsulting';
-import HomeSolutions from './homeSolutions';
-import About from './about';
-import Contact from './contact';
+import Home from './pages/home';
+import BusinessSupport from './pages/businessSupport';
+import ITConsulting from './pages/itConsulting';
+import HomeSolutions from './pages/homeSolutions';
+import About from './pages/about';
+import Contact from './pages/contact';
 // import Contact from './contact';
 // import PrivacyPolicy from './privacyPolicy';
 // import TermsOfService from './termsOfService';
@@ -35,8 +35,8 @@ const config = {phone:"800-555-5555"};
   return (
     <ThemeProvider theme={theme}>
     	<div>
-    	<SearchAppBar config={config}/>
     	<Router>
+    	<SearchAppBar config={config}/>
     	<Switch>
           <Route exact path="/">
             <Home />

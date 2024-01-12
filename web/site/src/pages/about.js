@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+
+    fontSize: 20
   },
 }));
 

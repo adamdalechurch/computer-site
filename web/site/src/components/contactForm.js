@@ -1,5 +1,34 @@
 import React, { useState } from 'react';
 import { TextField, Button, Snackbar, makeStyles } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles((theme) => ({
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: '800px',
+    margin: 'auto',
+    marginTop: theme.spacing(2),
+  },
+  input: {
+    margin: theme.spacing(1, 0),
+  },
+  pageHeader: {
+    marginTop: 20,
+    marginBottom: 20,
+    color: theme.palette.black.main[900],
+    textAlign: 'center',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 30
+    }
+  },
+  para: {
+    color: theme.palette.black.main,
+    marginTop: 10,
+    marginBottom: 15,
+    fontSize: 20,
+  },
+}));
 
 const ContactForm = () => {
   const classes = useStyles();
@@ -26,6 +55,19 @@ const ContactForm = () => {
 
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
+      <Typography variant="h2" className={classes.pageHeader}>
+        Contact Us
+      </Typography>    
+      <Typography variant="body1" className={classes.para}>
+        At Veteran Computer Solutions our first priority 
+        is ensuring your technology works for you
+        and that we offer the best support possible.
+      </Typography>
+      <Typography variant="body1" className={classes.para}>
+        Fill out the form according to your 
+        needs and we will answer your inquiry the same 
+        business day.
+      </Typography>
       <TextField
         className={classes.input}
         label="Name"
@@ -56,7 +98,7 @@ const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" color="secondary">
         Submit
       </Button>
       <Snackbar
@@ -68,18 +110,5 @@ const ContactForm = () => {
     </form>
   );
 };
-
-const useStyles = makeStyles((theme) => ({
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    maxWidth: '400px',
-    margin: 'auto',
-    marginTop: theme.spacing(2),
-  },
-  input: {
-    margin: theme.spacing(1, 0),
-  },
-}));
 
 export default ContactForm;

@@ -3,11 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { Container, useTheme } from "@material-ui/core";
-import { InfoCard } from './components/infocard';
-import itAssessments from './img/it_assessments.webp';
-import irProjectManagement from './img/it_project_management.webp';
-import itStrategyAndPlanning from './img/it_strategy_and_planning.webp';
-import backupSolutions from './img/backup_solutions.webp';
+import { InfoCard } from '../components/infocard';
+import itAssessments from '../img/it_assessments.webp';
+import irProjectManagement from '../img/it_project_management.webp';
+import itStrategyAndPlanning from '../img/it_strategy_and_planning.webp';
+import backupSolutions from '../img/backup_solutions.webp';
 const useStyles = makeStyles((theme) => ({
 
   pageHeader: {
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    textAlign: "left",
   },
 }));
 

@@ -17,6 +17,8 @@ import { Button } from "@material-ui/core";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/LinkedIn';
+import {NavLink} from "react-router-dom";
+import {Routes} from './routes';
 
 const useStyles = makeStyles((theme) => ({
   seperator: {
@@ -37,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
       width: 300,
     }
   },
-  
   header: {
     flexGrow: 1,
   },
@@ -46,15 +47,11 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    display: 'none',
     fontSize: 22,
     fontWeight: "bolder",
     color: theme.palette.black.main,
     [theme.breakpoints.up('md')]: {
       fontSize: 30,
-    },
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
     },
   },
   login: {
@@ -109,12 +106,19 @@ const useStyles = makeStyles((theme) => ({
   link: {
     color: "white",
     margin: 15,
+    textDecoration: "none",
+    fontWeight: "bold",
     [theme.breakpoints.down('md')]: {
       display: "none"
     }
   },
+  activeLink: {
+    textDecoration: "underline",
+    fontWeight: "bolder",
+    },
   menuButton: {
     marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(1),
     [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
@@ -212,9 +216,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     marginBottopm: theme.spacing(2),
   },
+
+  drawerLink: {
+    color: theme.palette.black.main,
+    margin: 15,
+    display: 'block',
+  },
 }));
 
-export default function SearchAppBar( { config } ) {
+export default function Header( { config } ) {
   const classes = useStyles();
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -235,12 +245,9 @@ export default function SearchAppBar( { config } ) {
       <AppBar position="static" className={classes.bar}>
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link href="/" className={classes.link}>HOME</Link>
-            <Link href="/business-support" className={classes.link}>BUSINESS SUPPORT</Link>
-            <Link href="/it-consulting" className={classes.link}>IT CONSULTING</Link>
-            <Link href="/home-solutions" className={classes.link}>HOME SOLUTIONS</Link>
-            <Link href="/about" className={classes.link}>ABOUT</Link>
-            <Link href="/contact" className={classes.link}>CONTACT</Link>
+            {Routes.map((route, index) => (
+              <NavLink exact to={route.path} className={classes.link} activeClassName={classes.activeLink}> {route.title} </NavLink>
+            ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <div className={classes.callContainer}>
@@ -256,45 +263,45 @@ export default function SearchAppBar( { config } ) {
         </Toolbar>       
       </AppBar>
       <Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
-          <div
-            className={classes.list}
-            role="presentation"
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
-            <List>
-              {['Home', 'Search Movie'].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemText primary={text} />
-                </ListItem>
-              ))}
-            </List>
-          </div>
+        <div
+          className={classes.list}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+            {/* {Routes.map((route, index) => (
+              <ListItem button key={route.name}>
+                <NavLink exact to={route.path} className={classes.drawerLink} activeClassName={classes.activeLink}> {route.name} </NavLink>
+              </ListItem>
+            ))} */}
+          </List>  
+        </div>
         </Drawer>
         <div className={classes.subheader}>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <AppBar position="static" className={classes.subheaderBar}>
-            <Toolbar>
-            <Link href="/">
-          <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
-          </Link>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Veteran Computer Solutions
-          </Typography>
-            </Toolbar>
-          </AppBar>
+          <Box sx={{ flexGrow: 1, display:  'flex' }}>
+            <AppBar position="static" className={classes.subheaderBar}>
+              <Toolbar>
+              <Link href="/">
+                <Avatar alt="Computer Site" src="/logo.svg" className={classes.avatar} />
+                </Link>
+                <Typography className={classes.title} variant="h6" noWrap>
+              Veteran Computer Solutions
+                </Typography>
+              </Toolbar>
+            </AppBar>
           </Box>
 
-        <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             <div className={classes.topSocials}>
               <Link href="config.facebook" className={classes.facebook}><FacebookIcon /></Link>
               <Link href="config.twitter" className={classes.twitter}><TwitterIcon /></Link>
               <Link href="config.instagram" className={classes.instagram}><InstagramIcon /></Link>
             </div>
           </Box>
-          </div>
-          <div className={classes.seperator}>
-          </div> 
+        </div>
+      <div className={classes.seperator}>
+    </div> 
     </div>
   );
 }

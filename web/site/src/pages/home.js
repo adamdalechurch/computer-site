@@ -9,9 +9,9 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Container, useTheme } from "@material-ui/core";
-import { InfoBox } from './components/infobox';
-import femaleUsingLaptop from './img/female_using_laptop.webp';
-import techPeopleWorking from './img/tech_people_working.webp';
+import { InfoBox } from '../components/infobox';
+import femaleUsingLaptop from '../img/female_using_laptop.webp';
+import techPeopleWorking from '../img/tech_people_working.webp';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: 2,
     color: theme.palette.black.main,
     marginTop: 10,
-    marginBottom: 15
+    marginBottom: 15,
+    textAlign: "left",
   },
   scheduleButton: {
     margin: "auto",

@@ -10,13 +10,14 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(1),
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
+        // on mobile, should be centered
     },
 }));
 
 export const FooterColumn = (props) => {
   const classes = useStyles();
   return (
-    <Grid item md={4}>
+    <Grid item md={4} xs={12}>
         <div className={classes.footerColumn}>
             {props.children}
         </div>

@@ -3,13 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { Container, useTheme } from "@material-ui/core";
-import { InfoCard } from './components/infocard';
-import itAssessments from './img/it_assessments.webp';
-import cyberSecurity from './img/cyber_security.webp';
-import backupSolutions from './img/backup_solutions.webp';
-import networking from './img/networking.webp';
-import preventativeMaintenance from './img/preventative_maintenance.webp';
-import training from './img/training.webp';
+import { InfoCard } from '../components/infocard';
+import itAssessments from '../img/it_assessments.webp';
+import cyberSecurity from '../img/cyber_security.webp';
+import backupSolutions from '../img/backup_solutions.webp';
+import networking from '../img/networking.webp';
+import preventativeMaintenance from '../img/preventative_maintenance.webp';
+import training from '../img/training.webp';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    textAlign: "left",
+
   },
 }));
 
