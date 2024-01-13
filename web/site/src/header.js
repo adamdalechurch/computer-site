@@ -24,20 +24,6 @@ const useStyles = makeStyles((theme) => ({
       height: theme.spacing(1),
     }
   },
-  mainLogoContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mainLogo: {
-    width: theme.spacing(50),
-    height: theme.spacing(50),
-    background: 'transparent',
-    marginTop: theme.spacing(2),
-    [theme.breakpoints.down('sm')]: {
-      width: 1900,
-    }
-  },
   header: {
     flexGrow: 1,
   },
@@ -46,12 +32,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    fontSize: theme.spacing(4),
+    fontSize: theme.spacing(3),
     fontWeight: "bolder",
     color: theme.palette.black.main,
-    [theme.breakpoints.down('md')]: {
-      fontSize: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2),
     },
+
   },
   login: {
     margin: 20,
@@ -89,8 +76,16 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     marginRight: 10,
     border: "2px solid white",
-    width: theme.spacing(8),
-    height: theme.spacing(8),
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+    [theme.breakpoints.down('sm')]: {
+      width: theme.spacing(6),
+      height: theme.spacing(6),
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: theme.spacing(5),
+      height: theme.spacing(5),
+    },
   },
   user: {
     margin: 25
