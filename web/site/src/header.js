@@ -14,11 +14,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Box from '@material-ui/core/Box';
 import { Button } from "@material-ui/core";
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/LinkedIn';
 import {NavLink} from "react-router-dom";
 import {Routes} from './routes';
+import Socials from "./components/socials";
 
 const useStyles = makeStyles((theme) => ({
   seperator: {
@@ -146,21 +144,6 @@ const useStyles = makeStyles((theme) => ({
       display: 'none'
     }
   },
-  // colors for the social icons
-  facebook: {
-    color: '#3b5998',
-    width:30,
-  },
-
-  twitter: {
-    color: '#00acee',
-    width: 30, 
-
-  },
-  instagram: {
-    color: '#e4405f',
-    width:30, 
-  },
   callContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -221,17 +204,6 @@ const useStyles = makeStyles((theme) => ({
         width: '30ch',
       },
     },
-  },
-
-  // translate paralax up a smidge
-  parallax: {
-    backgroundImage: `url(https://images.pexels.com/photos/1340504/pexels-photo-1340504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
-    minHeight: theme.spacing(54),
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center -200px',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    marginBottopm: theme.spacing(2),
   },
 
   drawerLink: {
@@ -314,16 +286,12 @@ export default function Header( { config } ) {
 
           <Box>
             <div className={classes.topSocials}>
-              <Link href="config.facebook" className={classes.facebook}><FacebookIcon /></Link>
-              <Link href="config.twitter" className={classes.twitter}><TwitterIcon /></Link>
-              <Link href="config.instagram" className={classes.instagram}><InstagramIcon /></Link>
+              <Socials />
             </div>
           </Box>
         </div>
         <div className={classes.topSocialsMobile}>
-          <Link href="config.facebook" className={classes.facebook}><FacebookIcon /></Link>
-          <Link href="config.twitter" className={classes.twitter}><TwitterIcon /></Link>
-          <Link href="config.instagram" className={classes.instagram}><InstagramIcon /></Link>
+          <Socials />
         </div>
       <div className={classes.seperator}>
       </div> 

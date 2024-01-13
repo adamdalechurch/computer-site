@@ -8,13 +8,12 @@ import ContactForm from '../components/contactForm';
 
 const useStyles = makeStyles((theme) => ({
   contact: {  
-    marginTop: 20,
-    marginBottom: 20,
+    marginBottom: theme.spacing(8),
     background: theme.palette.white.main,
     color: theme.palette.black.main,
-    [theme.breakpoints.down('xs')]: {
-      marginLeft: 30,
-      marginRight: 30
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 0,
+      marginRight: 0
     }
   },
 }));
@@ -22,12 +21,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Contact() {
   const classes = useStyles();
   return (
-    <Container>  
-      <Card className={classes.contact}>
-        <CardContent>
-          <ContactForm/>
-        </CardContent>
-      </Card>
+    <Container>
+      <div className={classes.contact}>
+        <ContactForm/>
+      </div>
     </Container>
   );
 }
