@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(2),
     fontSize: theme.spacing(5),
+    fontWeight: '550',
+
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(4),
     },

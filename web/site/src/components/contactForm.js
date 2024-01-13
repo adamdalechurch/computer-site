@@ -8,17 +8,18 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     maxWidth: '800px',
     margin: 'auto',
+    fontWeight: '550',
     marginTop: theme.spacing(2),
   },
   input: {
     margin: theme.spacing(1, 0),
   },
   pageHeader: {
-    marginTop: 20,
     marginBottom: 20,
     color: theme.palette.black.main[900],
     textAlign: 'center',
     fontSize: theme.spacing(4),
+    fontWeight: '550',
     [theme.breakpoints.down('xs')]: {
       fontSize: theme.spacing(3),
     }

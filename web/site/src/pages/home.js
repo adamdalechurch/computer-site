@@ -52,6 +52,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     marginBottom: 20
   },
+  seperator: {
+    height: theme.spacing(12),
+    background: theme.palette.white.main,
+  },
+  mainContent: {
+    marginTop: 0,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(2),
+    }
+}
 }));
 
 export default function Home() {
@@ -62,12 +72,10 @@ export default function Home() {
   return (
     <div>
       <Container>
-      <Card>
-      <CardContent>
       <Grid container spacing={3}>
         {/* Featured card 1 */}
         <Grid item xs={12} md={6}>
-          <Card>
+          <Card className={classes.mainContent}>
           <CardMedia className={classes.media} image={ femaleUsingLaptop } />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
@@ -113,7 +121,7 @@ export default function Home() {
         </Grid>
 
         {/* Info Boxes */}
-        <InfoBox title="Computer Repair">
+        <InfoBox isSecondary={true} title="Computer Repair">
           <Typography variant="body2" component="p" className={classes.para}>
             We specialize in providing reliable, cost-effective computer repair services.
             We understand the importance of having reliable, 
@@ -135,7 +143,7 @@ export default function Home() {
           </Typography>
         </InfoBox>
 
-        <InfoBox title="Computer Repair">
+        <InfoBox isSecondary={true} title="Computer Repair">
           <Typography variant="body2" component="p" className={classes.para}>
             We specialize in providing reliable, cost-effective computer repair services.
             We understand the importance of having reliable, 
@@ -146,9 +154,8 @@ export default function Home() {
           </Typography>
         </InfoBox>
        </Grid>
-      </CardContent>
-     </Card>
     </Container>
+    <div className={classes.seperator}></div> 
   </div>
   );
 }

@@ -9,19 +9,27 @@ const makeInfoBoxStyle = (theme) => ({
     marginBottom: theme.spacing(1),
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    border: '1px solid #ccc',
     borderRadius: 5,
-    background: theme.palette.grey.secondary,
 });
 
 const useStyles = makeStyles((theme) => ({
     infoBox: {
         ...makeInfoBoxStyle(theme),
-        background: theme.palette.grey.main,
+        background: theme.palette.grey.main
     },
     infoBoxAlt: {
         ...makeInfoBoxStyle(theme),
-        background: theme.palette.grey.secondary,
+        background: theme.palette.grey.secondary
+    },
+    title:{
+        color: theme.palette.black.main,
+        fontWeight: '550',
+        fontSize: theme.spacing(4),
+
+        [theme.breakpoints.down('sm')]: {
+            fontSize: theme.spacing(3),
+            textAlign: 'center',
+        },
     }
 }));
 
@@ -30,8 +38,8 @@ export const InfoBox = (props) => {
 
   return (
     <Grid item xs={12} md={4}>
-        <div className={classes.infoBox}>
-        <Typography gutterBottom variant="h3" component="h2">
+        <div className={(props.isSecondary ? classes.infoBoxAlt : classes.infoBox )}>
+        <Typography gutterBottom variant="h3" component="h2" className={classes.title}>
             {props.title}
         </Typography>
         <Typography variant="body2" component="p" className={classes.para}>

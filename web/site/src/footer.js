@@ -36,9 +36,8 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     flexGrow: 1,
     background: theme.palette.base.main,
-    height: theme.spacing(50),
     color: theme.palette.white.main,
-
+    minHeight: "auto",
     // on xs, double the height
     [theme.breakpoints.down('sm')]: {
       height: theme.spacing(75),
@@ -66,18 +65,10 @@ const useStyles = makeStyles((theme) => ({
 
     fontSize:theme.spacing(1),
   },
-  copyrightDesktop:{
+  copyright:{
     display: 'block',
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
   },
-  copyrightMobile:{
-    display: 'none',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
-    },
-  },
+
 
   avatar: {
     border: "2px solid white",
@@ -132,9 +123,6 @@ export default function Footer( { config } ) {
         <div className={classes.bottomSocials}>
           <Socials />
         </div>
-        <Typography variant="body2" color="inherit" align="center" className={classes.copyrightDesktop}>
-          © 2020 {process.env.REACT_APP_SITE_NAME}
-        </Typography>
       </FooterColumn>
       <FooterColumn>
         <Avatar alt="Veteran Owned Business" src="/vob.webp" className={classes.avatar} />
@@ -154,7 +142,7 @@ export default function Footer( { config } ) {
       </FooterColumn>
       </Grid>
     </Container>
-    <Typography variant="body2" color="inherit" align="center" className={classes.copyrightMobile}>
+    <Typography variant="body2" color="inherit" align="center" className={classes.copyright}>
       © 2020 {process.env.REACT_APP_SITE_NAME}
     </Typography>
   </div>

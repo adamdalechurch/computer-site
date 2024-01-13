@@ -8,8 +8,8 @@ import itAssessments from '../img/it_assessments.webp';
 import irProjectManagement from '../img/it_project_management.webp';
 import itStrategyAndPlanning from '../img/it_strategy_and_planning.webp';
 import backupSolutions from '../img/backup_solutions.webp';
-const useStyles = makeStyles((theme) => ({
 
+const useStyles = makeStyles((theme) => ({
   pageHeader: {
     textAlign: "center",
     color: theme.palette.black.main,
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "block",
     fontSize: theme.spacing(4),
+    fontWeight: '550',
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(3),
     },

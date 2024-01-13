@@ -18,7 +18,7 @@ import Socials from "./components/socials";
 
 const useStyles = makeStyles((theme) => ({
   seperator: {
-    height: theme.spacing(8),
+    height: theme.spacing(4),
     background: theme.palette.white.main,
     [theme.breakpoints.down('sm')]: {
       height: theme.spacing(1),
