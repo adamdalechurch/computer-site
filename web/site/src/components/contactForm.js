@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextField, Button, Snackbar, makeStyles } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { TextField, Button, Snackbar, makeStyles , Typography, CircularProgress} from '@material-ui/core';
+import Alert from '@mui/material/Alert';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -28,11 +28,17 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     fontSize: 20,
   },
+  alert: {
+    fontSize: theme.spacing(4),
+    fontWeight: 'bold',
+  },
 }));
 
 const ContactForm = () => {
   const classes = useStyles();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formLoading, setFormLoading] = useState(false);
+  const [alertSeverity, setAlertSeverity] = useState('success');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleChange = (e) => {
@@ -41,12 +47,31 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    // For example, you can send the form data to a server or trigger an action
-    // Reset the form data after submission
-    setFormData({ name: '', email: '', message: '' });
-    // Show a snackbar to indicate successful submission
+    setFormLoading(true);
+    setAlertSeverity('success');
     setSnackbarOpen(true);
+    setFormLoading(false);
+
+    // submit form to formsubmit.co
+    fetch(process.env.REACT_APP_FORMSUBMIT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+    .then(response => {
+      setFormData({ name: '', email: '', message: '' });
+      if (response.ok) {
+        setAlertSeverity('success');
+        setSnackbarOpen(true);
+      }
+    })
+    .catch((error) => {
+      setAlertSeverity('error');
+    })
+    .finally(() => {
+      setFormLoading(false);
+    }); 
   };
 
   const handleSnackbarClose = () => {
@@ -98,15 +123,34 @@ const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      <Button type="submit" variant="contained" color="secondary">
-        Submit
+      {/* <Button type="submit" variant="contained" color="secondary">
+        {(formLoading ? <Alert /> : 'Submit')}
+      </Button> */}
+      {/*  show a material ui spinner when the form is loading */}
+      <Button
+        type="submit"
+        variant="contained"
+        color="secondary"
+        disabled={formLoading}
+      >
+        {(formLoading ? 
+          <span>
+            <CircularProgress size={24} color="secondary" /> Loading... 
+          </span> : 
+          'Submit'
+        )}
       </Button>
       <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         open={snackbarOpen}
         autoHideDuration={3000}
         onClose={handleSnackbarClose}
         message="Form submitted successfully!"
-      />
+      >
+        <Alert onClose={handleSnackbarClose} severity={alertSeverity} className={classes.alert}>
+          {alertSeverity === 'success' ? 'Email submitted successfully!' : 'Error submitting form.'}
+        </Alert>
+      </Snackbar>
     </form>
   );
 };
