@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(1),
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        // on mobile, should be centered
     },
 }));
 

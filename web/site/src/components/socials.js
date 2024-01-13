@@ -9,24 +9,14 @@ const useStyles = makeStyles((theme) => ({
     facebook: {
         color: '#3b5998',
         width: theme.spacing(3),
-        [theme.breakpoints.down('sm')]: {
-            width: theme.spacing(2),
-        },
     },
     twitter: {
         color: '#00acee',
         width: theme.spacing(3),
-        [theme.breakpoints.down('sm')]: {
-            width: theme.spacing(2),
-        },
-
     },
     instagram: {
         color: '#e4405f',
         width: theme.spacing(3),
-        [theme.breakpoints.down('sm')]: {
-            width: theme.spacing(2),
-        },
     },
 }));
 

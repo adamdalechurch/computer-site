@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
     // on xs, double the height
     [theme.breakpoints.down('sm')]: {
-      height: theme.spacing(90),
+      height: theme.spacing(75),
     } 
   },
   bar: {
@@ -120,8 +120,8 @@ export default function Footer( { config } ) {
         {/*Bottom Menu */}
         <div className={classes.bottomMenu}>
           {Routes.filter(route => route.showOnMenu).map((route, index) => (
-            <NavLink to={route.path} className={classes.link} 
-            activeClassName={classes.linkActive} key={index}>
+            <NavLink exact to={route.path} className={classes.link} 
+            activeClassName={classes.linkActive}>
               {route.title}
             </NavLink>
           ))}
@@ -150,13 +150,13 @@ export default function Footer( { config } ) {
             Terms of Service
           </Typography>
         </Link> 
-        <Typography variant="body2" color="inherit" align="center" className={classes.copyrightMobile}>
-          © 2020 {process.env.REACT_APP_SITE_NAME}
-        </Typography>
       </div>
       </FooterColumn>
       </Grid>
     </Container>
+    <Typography variant="body2" color="inherit" align="center" className={classes.copyrightMobile}>
+      © 2020 {process.env.REACT_APP_SITE_NAME}
+    </Typography>
   </div>
   );
 }

@@ -32,13 +32,46 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    fontSize: theme.spacing(3),
     fontWeight: "bolder",
     color: theme.palette.black.main,
     [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(2),
+      fontSize: theme.spacing(3.5),
     },
-
+  },
+  brandContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      display: 'block'
+    },
+  },
+  logoContainer: {
+    width: '8%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
+  },
+  titleContainer: {
+    width: '85%',
+    height: 'auto',
+    marginLeft: theme.spacing(2),
+    display: 'block',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
+  },
+  titleContainerMobile: {
+    width: '100%',
+    height: 'auto',
+    display: 'none',
+    marginTop: theme.spacing(3.5),
+    marginBottom: theme.spacing(1),
+    marginLeft: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      display: 'block'
+    },
   },
   login: {
     margin: 20,
@@ -76,15 +109,12 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     marginRight: 10,
     border: "2px solid white",
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: '100%',
+    height: "auto",
     [theme.breakpoints.down('sm')]: {
-      width: theme.spacing(6),
-      height: theme.spacing(6),
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: theme.spacing(5),
-      height: theme.spacing(5),
+      width: theme.spacing(20),
+      height: theme.spacing(20),
+      margin: "auto",
     },
   },
   user: {
@@ -135,7 +165,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     fontSize:theme.spacing(2),
     // move to the left slightly:
-    marginRight: theme.spacing(4),
     [theme.breakpoints.up('md')]: {
       display: 'none'
     }
@@ -172,8 +201,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     margin: 'auto',
     padding: theme.spacing(2),
-    [theme.breakpoints.down('xs')]: {
-      height: theme.spacing(10),
+    [theme.breakpoints.down('sm')]: {
+      height: theme.spacing(32),
       padding: theme.spacing(1),
       marginBottom: 0
     }
@@ -183,6 +212,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none',
     border: 'none',
     color: 'black',
+    alignItems: 'left',
+    justifyContent: 'left',
     [theme.breakpoints.down('sm')]: {
       display: 'flex',
       alignItems: 'center',
@@ -269,16 +300,26 @@ export default function Header( { config } ) {
           <Box sx={{ flexGrow: 1, display:  'flex' }}>
             <AppBar position="static" className={classes.subheaderBar}>
               <Toolbar>
-              <Link href="/">
-                <Avatar alt={process.env.REACT_APP_SITE_NAME} src="/logo.svg" className={classes.avatar} />
-                </Link>
-                <Typography className={classes.title} variant="h6" noWrap>
-                  {process.env.REACT_APP_SITE_NAME}
-                </Typography>
+                <div className={classes.brandContainer}>
+                  <div className={classes.titleContainerMobile}>
+                    <Typography className={classes.title} variant="h6" noWrap>
+                      {process.env.REACT_APP_SITE_NAME}
+                    </Typography>
+                  </div>
+                  <div className={classes.logoContainer}>
+                    <Link href="/">
+                      <Avatar alt={process.env.REACT_APP_SITE_NAME} src="/logo.svg" className={classes.avatar} />
+                    </Link>
+                  </div>
+                  <div className={classes.titleContainer}>
+                    <Typography className={classes.title} variant="h6" noWrap>
+                      {process.env.REACT_APP_SITE_NAME}
+                    </Typography>
+                  </div>
+                </div>
               </Toolbar>
             </AppBar>
           </Box>
-
           <Box>
             <div className={classes.topSocials}>
               <Socials />

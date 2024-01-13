@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    [theme.breakpoints.down('sm')]: {
+      width: "95%",
+      fontSize: theme.spacing(2),
+      padding: 10,
+      marginLeft: 0,
+      marginRight: 0
+    },
   },
   greyBox2: {
     background: theme.palette.grey[200],
@@ -21,6 +28,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    [theme.breakpoints.down('sm')]: {
+      width: "95%",
+      fontSize: theme.spacing(2),
+      padding: 10,
+      marginLeft: 0,
+      marginRight: 0
+    },
   },
   pageHeader: {
     textAlign: "center",
