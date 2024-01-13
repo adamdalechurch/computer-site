@@ -266,7 +266,7 @@ export default function Header( { config } ) {
       <AppBar position="static" className={classes.bar}>
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {Routes.map((route, index) => (
+            {Routes.filter(route => route.showOnMenu).map((route, index) => (
               <NavLink exact to={route.path} className={classes.link} activeClassName={classes.activeLink}> {route.title} </NavLink>
             ))}
           </Box>
@@ -291,8 +291,7 @@ export default function Header( { config } ) {
           onKeyDown={toggleDrawer(false)}
         >
           <List>
-            {/* <NavLink exact to="/" className={classes.drawerLink} activeClassName={classes.activeLink}> Home </NavLink> */}
-            {Routes.map((route, index) => (
+            {Routes.filter(route => route.showOnMenu).map((route, index) => (
                 <NavLink exact to={route.path} className={classes.drawerLink}
                  activeClassName={classes.activeLink}> {route.title} </NavLink>
             ))} 

@@ -117,7 +117,7 @@ export default function Footer( { config } ) {
       <FooterColumn>
         {/*Bottom Menu */}
         <div className={classes.bottomMenu}>
-          {Routes.map((route, index) => (
+          {Routes.filter(route => route.showOnMenu).map((route, index) => (
             <NavLink to={route.path} className={classes.link} 
             activeClassName={classes.linkActive} key={index}>
               {route.title}

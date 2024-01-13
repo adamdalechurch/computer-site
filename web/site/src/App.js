@@ -6,9 +6,8 @@ import ITConsulting from './pages/itConsulting';
 import HomeSolutions from './pages/homeSolutions';
 import About from './pages/about';
 import Contact from './pages/contact';
-// import Contact from './contact';
-// import PrivacyPolicy from './privacyPolicy';
-// import TermsOfService from './termsOfService';
+import PrivacyPolicy from './pages/privacyPolicy';
+import TermsOfService from './pages/termsOfService';
 import Footer from './footer';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
@@ -56,12 +55,12 @@ const config = {phone:"800-555-5555"};
            <Route path="/contact">
             <Contact config={config}/>
           </Route>
-          {/*<Route path="/privacy-policy">
+          <Route path="/privacy-policy">
             <PrivacyPolicy />
           </Route>
           <Route path="/terms-of-service">
             <TermsOfService />
-          </Route> */}
+          </Route>
         </Switch>
         <Footer config={config}/>
     	</Router>
