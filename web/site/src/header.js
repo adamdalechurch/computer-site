@@ -10,8 +10,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Link from '@material-ui/core/Link';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Box from '@material-ui/core/Box';
 import { Button } from "@material-ui/core";
 import {NavLink} from "react-router-dom";
@@ -51,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(4),
     fontWeight: "bolder",
     color: theme.palette.black.main,
+    [theme.breakpoints.down('md')]: {
+      fontSize: theme.spacing(3),
+    },
   },
   login: {
     margin: 20,
@@ -205,12 +206,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-
   drawerLink: {
     color: theme.palette.black.main,
     textDecoration: "none",
-    fontSize: theme.spacing(4),
-    margin: theme.spacing(4),
+    fontSize: theme.spacing(3),
+    margin: theme.spacing(3),
     display: 'block',
     color: 'black',
     width: '100%',

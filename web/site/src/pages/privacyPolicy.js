@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
   pageHeader: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(2),
+    fontSize: theme.spacing(4),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(3),
+    },
   },
   seperator: {
     height: theme.spacing(8),
@@ -15,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
   para: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
+    fontSize: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2),
+    },
   },
 }));
 

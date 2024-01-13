@@ -18,15 +18,19 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
     color: theme.palette.black.main[900],
     textAlign: 'center',
+    fontSize: theme.spacing(4),
     [theme.breakpoints.down('xs')]: {
-      fontSize: 30
+      fontSize: theme.spacing(3),
     }
   },
   para: {
     color: theme.palette.black.main,
     marginTop: 10,
     marginBottom: 15,
-    fontSize: 20,
+    fontSize: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2),
+    },
   },
   alert: {
     fontSize: theme.spacing(4),

@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         [theme.breakpoints.down('xs')]: {
             maxWidth: "100%",
-            marginLeft: 30,
-            marginRight: 30
+            marginLeft: 0,
+            marginRight: 0
         }
     },
     header: {
@@ -32,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
         letterSpacing: 2,
         color: theme.palette.black.main,
         marginTop: 10,
-        marginBottom: 15
+        marginBottom: 15,
+        padding: 0,
+        // [theme.breakpoints.down('sm')]: {
+        //     padding: theme.spacing(1),
+        // },
     },
 }));
 

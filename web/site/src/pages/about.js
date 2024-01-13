@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(3),
+    },
   },
   seperator: {
     height: theme.spacing(1) / 2,
@@ -38,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     marginBottom: theme.spacing(2),
   },
+  seperator2: {
+    height: theme.spacing(10),
+  },
   para: {
     letterSpacing: 2,
     color: theme.palette.black.main,
@@ -45,8 +51,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
-
-    fontSize: 20
+    fontSize: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2),
+    },
   },
 }));
 
@@ -83,6 +91,7 @@ export default function About() {
       Let us help you take your business to the next level.
     </Typography>
   </div>
+  <div className={classes.seperator2}></div>
 </Container>
 );
 }

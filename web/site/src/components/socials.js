@@ -43,7 +43,12 @@ export default function Socials() {
     return (
         <div>
             {socials.filter((social) => social.link && social.link != '').map((social) => (
-                <Link href={social.link} className={classes[social.name.toLocaleLowerCase()]}>{social.icon}
+                <Link
+                 href={social.link} 
+                 className={classes[social.name.toLocaleLowerCase()]}
+                 target='_blank'
+                 >
+                    {social.icon}
                 </Link>
             ))}
         </div>

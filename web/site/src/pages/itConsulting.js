@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 15,
     width: "100%",
     display: "block",
+    fontSize: theme.spacing(4),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(3),
+    },
   },
 
   para: {
@@ -27,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "block",
     textAlign: "left",
+    fontSize: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2),
+    },
   },
 }));
 

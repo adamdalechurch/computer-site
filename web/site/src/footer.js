@@ -20,6 +20,7 @@ import Avatar from '@material-ui/core/Avatar';
 import {NavLink} from "react-router-dom";
 
 import {Routes} from './routes';
+import Socials from "./components/socials";
 
 const useStyles = makeStyles((theme) => ({
   seperator: {
@@ -65,18 +66,19 @@ const useStyles = makeStyles((theme) => ({
 
     fontSize:theme.spacing(1),
   },
-  facebook: {
-    color: '#3b5998',
-    width:30,
+  copyrightDesktop:{
+    display: 'block',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
-  twitter: {
-    color: '#00acee',
-    width: 30, 
+  copyrightMobile:{
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+    },
   },
-  instagram: {
-    color: '#e4405f',
-    width:30, 
-  },
+
   avatar: {
     border: "2px solid white",
     width: theme.spacing(16),
@@ -128,18 +130,9 @@ export default function Footer( { config } ) {
       <FooterColumn>
         {/* Bottom Socials */}
         <div className={classes.bottomSocials}>
-          <IconButton aria-label="facebook" className={classes.facebook}>
-            <FacebookIcon />
-          </IconButton>
-          <IconButton aria-label="twitter" className={classes.twitter}>
-            <TwitterIcon />
-          </IconButton>
-          <IconButton aria-label="instagram" className={classes.instagram}>
-            <InstagramIcon />
-          </IconButton>
+          <Socials />
         </div>
-        {/* Bottom Copyright */}
-        <Typography variant="body2" color="inherit" align="center">
+        <Typography variant="body2" color="inherit" align="center" className={classes.copyrightDesktop}>
           © 2020 {process.env.REACT_APP_SITE_NAME}
         </Typography>
       </FooterColumn>
@@ -157,6 +150,9 @@ export default function Footer( { config } ) {
             Terms of Service
           </Typography>
         </Link> 
+        <Typography variant="body2" color="inherit" align="center" className={classes.copyrightMobile}>
+          © 2020 {process.env.REACT_APP_SITE_NAME}
+        </Typography>
       </div>
       </FooterColumn>
       </Grid>

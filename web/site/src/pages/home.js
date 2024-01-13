@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
     marginBottom: 15,
     textAlign: "left",
+    fontSize: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(1.75),
+    },
   },
   scheduleButton: {
     margin: "auto",
