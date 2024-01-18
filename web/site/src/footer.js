@@ -22,6 +22,8 @@ import {NavLink} from "react-router-dom";
 import {Routes} from './routes';
 import Socials from "./components/socials";
 
+const current_year = new Date().getFullYear();
+
 const useStyles = makeStyles((theme) => ({
   seperator: {
     height: theme.spacing(8),
@@ -98,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Footer( { config } ) {
+export default function Footer() {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -143,7 +145,7 @@ export default function Footer( { config } ) {
       </Grid>
     </Container>
     <Typography variant="body2" color="inherit" align="center" className={classes.copyright}>
-      © 2020 {process.env.REACT_APP_SITE_NAME}
+      © {current_year} {process.env.REACT_APP_SITE_NAME}
     </Typography>
   </div>
   );

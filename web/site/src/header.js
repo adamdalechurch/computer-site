@@ -179,9 +179,6 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     margin: theme.spacing(2),
     fontSize: theme.spacing(2),
-    [theme.breakpoints.down('md')]: {
-      display: "none"
-    }
   },
   phoneIcon: {
     marginBottom: '2px', // adjust this value as needed
@@ -243,7 +240,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header( { config } ) {
+export default function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -263,21 +260,21 @@ export default function Header( { config } ) {
     <div className={classes.header}>
       <AppBar position="static" className={classes.bar}>
         <Toolbar>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1 }}>
             {Routes.filter(route => route.showOnMenu).map((route, index) => (
               <NavLink exact to={route.path} className={classes.link} activeClassName={classes.activeLink}> {route.title} </NavLink>
             ))}
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+              <MenuIcon />
+            </IconButton>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <div className={classes.callContainer}>
               <Button className={classes.phone} href={"tel:"+process.env.REACT_APP_SITE_PHONE}>
               <PhoneIcon className={classes.phoneIcon} />
-                {config.phone}
+                {process.env.REACT_APP_SITE_PHONE}
               </Button>
             </div>
-              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-                <MenuIcon />
-              </IconButton>
           </Box>
         </Toolbar>       
       </AppBar>
@@ -321,14 +318,14 @@ export default function Header( { config } ) {
             </AppBar>
           </Box>
           <Box>
-            <div className={classes.topSocials}>
+            {/* <div className={classes.topSocials}>
               <Socials />
-            </div>
+            </div> */}
           </Box>
         </div>
-        <div className={classes.topSocialsMobile}>
+        {/* <div className={classes.topSocialsMobile}>
           <Socials />
-        </div>
+        </div> */}
       <div className={classes.seperator}>
       </div> 
   </div>

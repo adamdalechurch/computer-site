@@ -30,12 +30,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
 const classes = useStyles();
-const config = {phone:"800-555-5555"};
+
   return (
     <ThemeProvider theme={theme}>
     	<div>
     	<Router>
-    	<SearchAppBar config={config}/>
+    	<SearchAppBar />
     	<Switch>
           <Route exact path="/">
             <Home />
@@ -53,7 +53,7 @@ const config = {phone:"800-555-5555"};
             <About />
           </Route>
            <Route path="/contact">
-            <Contact config={config}/>
+            <Contact/>
           </Route>
           <Route path="/privacy-policy">
             <PrivacyPolicy />
@@ -62,7 +62,7 @@ const config = {phone:"800-555-5555"};
             <TermsOfService />
           </Route>
         </Switch>
-        <Footer config={config}/>
+        <Footer/>
     	</Router>
     	</div>
       </ThemeProvider>

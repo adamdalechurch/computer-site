@@ -49,7 +49,7 @@ export default function Socials() {
                  className={classes[social.name.toLocaleLowerCase()]}
                  target='_blank'
                  >
-                     {social.icon}
+                    {social.icon}
                 </Link>
             ))}
         </div>

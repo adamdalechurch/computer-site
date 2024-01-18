@@ -12,6 +12,7 @@ import { Container, useTheme } from "@material-ui/core";
 import { InfoBox } from '../components/infobox';
 import femaleUsingLaptop from '../img/female_using_laptop.webp';
 import techPeopleWorking from '../img/tech_people_working.webp';
+import { InfoCard } from '../components/infocard';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -75,47 +76,34 @@ export default function Home() {
       <Grid container spacing={3}>
         {/* Featured card 1 */}
         <Grid item xs={12} md={6}>
-          <Card className={classes.mainContent}>
-          <CardMedia className={classes.media} image={ femaleUsingLaptop } />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Home Computer Solutions
-              </Typography>
-              <Typography variant="body2" component="p" className={classes.para}>
-                We specialize in providing reliable, cost-effective computer repair services.
-                We understand the importance of having reliable, 
-                efficient technology, and believe that technology should enhance your
-                life and not be a source of frustration. 
-                Our experienced technicians are dedicated to helping you get 
-                the most from your technology.
-              </Typography>
-            </CardContent>
-          </Card>
+          <InfoCard title="Computer Repair" image={femaleUsingLaptop}>
+            <Typography variant="body2" component="p" className={classes.para}>
+              We specialize in providing reliable, cost-effective computer repair services.
+              We understand the importance of having reliable, 
+              efficient technology, and believe that technology should enhance your
+              life and not be a source of frustration. 
+              Our experienced technicians are dedicated to helping you get 
+              the most from your technology.
+            </Typography>
+          </InfoCard>
         </Grid>
 
         {/* Featured card 2 */}
         <Grid item xs={12} md={6}>
-          <Card>
-          <CardMedia className={classes.media} image={ techPeopleWorking } />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Business IT Support
-              </Typography>
-              <Typography variant="body2" component="p" className={classes.para}>
-                We specialize in providing reliable, cost-effective computer repair services.
-                We understand the importance of having reliable, 
-                efficient technology, and believe that technology should enhance your
-                life and not be a source of frustration. 
-                Our experienced technicians are dedicated to helping you get 
-                the most from your technology.
-              </Typography>
-            </CardContent>
-          </Card>
+          <InfoCard title="Computer Repair" image={techPeopleWorking}>
+            <Typography variant="body2" component="p" className={classes.para}>
+              We specialize in providing reliable, cost-effective computer repair services.
+              We understand the importance of having reliable, 
+              efficient technology, and believe that technology should enhance your
+              life and not be a source of frustration. 
+              Our experienced technicians are dedicated to helping you get 
+              the most from your technology.
+            </Typography>
+          </InfoCard>
         </Grid>
 
-        {/* Schedule an appointment  */}
-        <Grid item xs={12} md={12} >
-          <Button variant="contained" color="secondary" className={classes.scheduleButton}>
+        <Grid item xs={12} md={12}>
+          <Button variant="contained" color="secondary" className={classes.scheduleButton} onClick={() => {window.location.href = "/contact"}}>
             Schedule an Appointment
           </Button>
         </Grid>

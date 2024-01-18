@@ -128,10 +128,7 @@ const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      {/* <Button type="submit" variant="contained" color="secondary">
-        {(formLoading ? <Alert /> : 'Submit')}
-      </Button> */}
-      {/*  show a material ui spinner when the form is loading */}
+
       <Button
         type="submit"
         variant="contained"
