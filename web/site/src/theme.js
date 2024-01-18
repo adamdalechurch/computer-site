@@ -6,10 +6,10 @@ export const theme = createTheme({
         main: '#EE2D28', // Red
       },
       secondary: {
-        main: '#003366', // White
+        main: '#014494', // White
       },
       base: {
-        main: '#003366', // Dark Blue
+        main: '#014494', // Dark Blue
       },
       info: {
         main: '#F2080B', // Dark Blue

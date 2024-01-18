@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   seperator: {
     height: theme.spacing(8),
-    background: theme.palette.white.main,
+    background: 'transparent'
   },
   para: {
     marginTop: theme.spacing(2),

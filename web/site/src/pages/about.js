@@ -72,13 +72,16 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.spacing(2),
     },
   },
+  main: {
+    height: "calc(100vh - " +theme.spacing(60)+"px)"
+  },
 }));
 
 export default function About() {
   const classes = useStyles();
 
   return (
-  <Container>
+  <Container class={classes.main}>
     <div className={classes.greyBox1}>
       <Typography variant="h4" className={classes.pageHeader}>
         About {process.env.REACT_APP_SITE_NAME}

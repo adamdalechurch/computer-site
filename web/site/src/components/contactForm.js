@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     margin: theme.spacing(1, 0),
+    background: 'white',
+    opacity: 0.8,
   },
   pageHeader: {
     marginBottom: 20,

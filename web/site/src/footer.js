@@ -10,32 +10,16 @@ import {NavLink} from "react-router-dom";
 
 import {Routes} from './routes';
 import Socials from "./components/socials";
+import ParallaxBackground from "./components/parallax";
 
 const current_year = new Date().getFullYear();
 
 const useStyles = makeStyles((theme) => ({
-  seperator: {
-    height: theme.spacing(8),
-    background: theme.palette.white.main,
-  },
   mainLogo: {
     width: theme.spacing(0),
     height: theme.spacing(50),
     background: 'transparent',
     marginTop: theme.spacing(2),
-  },
-  footer: {
-    flexGrow: 1,
-    background: theme.palette.base.main,
-    color: theme.palette.white.main,
-    minHeight: "auto",
-    // on xs, double the height
-    [theme.breakpoints.down('sm')]: {
-      height: theme.spacing(75),
-    } 
-  },
-  bar: {
-    background: theme.palette.base.main,
   },
   link: {
     color: "white",
@@ -56,24 +40,11 @@ const useStyles = makeStyles((theme) => ({
 
     fontSize:theme.spacing(1),
   },
-  copyright:{
-    display: 'block',
-  },
-
-
   avatar: {
     border: "2px solid white",
     width: theme.spacing(16),
     height: "auto",
     margin: "auto",
-  },
-  bottomMenu: {
-    width: "100%", 
-    textAlign: "left",
-    // center on mobile:
-    [theme.breakpoints.down('sm')]: {
-      textAlign: "center",
-    }
   },
   policyLinks: {
     textAlign: "center",
@@ -86,6 +57,16 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     margin: 5,
     display: 'inline-block',
+  },
+  copyright:{
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    textAlign: "center",
+
+    marginTop: 20,
+    marginBottom: 5,
+    color: "white",
   },
 }));
 
@@ -100,50 +81,48 @@ export default function Footer() {
     });
   };
 
-
   return (
     <div className={classes.footer}>
-      <Container>
-      <Grid container spacing={3}>
+      <ParallaxBackground bgImage="seal_blue_bg.png" vhHeight="40">
+        <Container>
+          <Grid container spacing={3}>
+          <FooterColumn>
+            {/*Bottom Menu */}
+            <div className={classes.bottomMenu}>
+              {Routes.filter(route => route.showOnMenu).map((route, index) => (
+                <NavLink exact to={route.path} className={classes.link} 
+                activeClassName={classes.linkActive}>
+                  {route.title}
+                </NavLink>
+              ))}
+            </div>
+          </FooterColumn>
+          <FooterColumn style={{height: '1px', margin: ''}}>
+          </FooterColumn>
+          <FooterColumn>
+            <Avatar alt="Veteran Owned Business" src="/vob.webp" className={classes.avatar} />
+            <div className={classes.policyLinks}>
+            <Link href="/privacy-policy" class={classes.whiteHyperlink}>
+              <Typography >
+                Privacy Policy
+              </Typography>
+            </Link>
+            /
+            <Link href="/terms-of-service" class={classes.whiteHyperlink}>
+              <Typography>
+                Terms of Service
+              </Typography>
+            </Link> 
+          </div>
+          </FooterColumn>
+          </Grid>
+        </Container>
+      <Typography variant="body2" color="white" align="center" className={classes.copyright}>
+        © {current_year} {process.env.REACT_APP_SITE_NAME} 
+      <Socials />
+      </Typography>
+      </ParallaxBackground>
 
-      <FooterColumn>
-        {/*Bottom Menu */}
-        <div className={classes.bottomMenu}>
-          {Routes.filter(route => route.showOnMenu).map((route, index) => (
-            <NavLink exact to={route.path} className={classes.link} 
-            activeClassName={classes.linkActive}>
-              {route.title}
-            </NavLink>
-          ))}
-        </div>
-      </FooterColumn>
-      <FooterColumn>
-        {/* Bottom Socials */}
-        <div className={classes.bottomSocials}>
-          <Socials />
-        </div>
-      </FooterColumn>
-      <FooterColumn>
-        <Avatar alt="Veteran Owned Business" src="/vob.webp" className={classes.avatar} />
-        <div className={classes.policyLinks}>
-        <Link href="/privacy-policy" class={classes.whiteHyperlink}>
-          <Typography >
-            Privacy Policy
-          </Typography>
-        </Link>
-        /
-        <Link href="/terms-of-service" class={classes.whiteHyperlink}>
-          <Typography>
-            Terms of Service
-          </Typography>
-        </Link> 
-      </div>
-      </FooterColumn>
-      </Grid>
-    </Container>
-    <Typography variant="body2" color="inherit" align="center" className={classes.copyright}>
-      © {current_year} {process.env.REACT_APP_SITE_NAME}
-    </Typography>
-  </div>
+    </div>
   );
 }

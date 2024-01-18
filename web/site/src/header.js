@@ -15,11 +15,11 @@ import { Button } from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 import {Routes} from './routes';
 import Socials from "./components/socials";
-
+import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   seperator: {
     height: theme.spacing(4),
-    background: theme.palette.white.main,
+    background: 'transparent',
     [theme.breakpoints.down('sm')]: {
       height: theme.spacing(1),
     }
@@ -27,21 +27,19 @@ const useStyles = makeStyles((theme) => ({
   header: {
     flexGrow: 1,
   },
-  bar: {
-    background: theme.palette.base.main,
-  },
   title: {
     flexGrow: 1,
     fontWeight: "bolder",
+    marginTop: theme.spacing(2),
     color: theme.palette.black.main,
     [theme.breakpoints.down('sm')]: {
+      marginTop: 0,
       fontSize: theme.spacing(3.5),
+      textAlign: "center",
     },
   },
   brandContainer: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
     [theme.breakpoints.down('sm')]: {
       display: 'block'
@@ -49,8 +47,10 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainer: {
     width: '8%',
+    marginLeft: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
       width: '100%',
+      marginTop: theme.spacing(2),
     },
   },
   titleContainer: {
@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     display: 'block',
     [theme.breakpoints.down('sm')]: {
+      marginBottom: 0,
       display: 'none'
     },
   },
@@ -67,10 +68,9 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
     display: 'none',
     marginTop: theme.spacing(3.5),
-    marginBottom: theme.spacing(1),
     marginLeft: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
-      display: 'block'
+      display: 'block',
     },
   },
   login: {
@@ -192,17 +192,33 @@ const useStyles = makeStyles((theme) => ({
   subheader: {
     color: theme.palette.black.main,
     height: theme.spacing(12),
-    maxWidth: '1280px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 'auto',
     padding: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
       height: theme.spacing(32),
       padding: theme.spacing(1),
       marginBottom: 0
     }
+  },
+ subheaderContainer: {
+    marginTop: `calc(30vh - 64px)`, // Adjust '64px' to your header's height
+    marginBottom: `calc(40vh - 64px)`,
+    transition: 'margin-top 0.9s', // Smooth transition for the subheader
+    // for non mobile, don't do any of this:
+    [theme.breakpoints.up('md')]: {
+      marginTop: `64px`, // Adjust '64px' to your header's height
+      marginBottom: 0,
+    }
+  },
+  subheaderScrolled: {
+    transition: 'margin-top 0.9s', // Smooth transition for the subheader=
+    marginTop: '72px',
+    marginBottom: 0,
+  },
+  bar: {
+    background: theme.palette.secondary.main,
   },
   subheaderBar: {
     background: 'transparent',
@@ -211,11 +227,11 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     alignItems: 'left',
     justifyContent: 'left',
-    [theme.breakpoints.down('sm')]: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }
+    // [theme.breakpoints.down('sm')]: {
+    //   display: 'flex',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    // }
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -228,6 +244,17 @@ const useStyles = makeStyles((theme) => ({
         width: '30ch',
       },
     },
+  },
+  menuContainer: {
+    display: 'flex',
+    width: '100%',
+    maxWidth: '1280px',
+    margin: 'auto',
+    background: theme.palette.secondary.main,
+    // [theme.breakpoints.down('sm')]: {
+    //   display: 'block'
+
+    // },
   },
   drawerLink: {
     color: theme.palette.black.main,
@@ -244,7 +271,14 @@ export default function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const offset = window.pageYOffset;
+    console.log(offset);
+    setIsScrolled(offset > 100); // Adjust scroll offset as needed
+  };
+
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -252,14 +286,17 @@ export default function Header() {
     setDrawerOpen(open);
   };
 
-  function search(e) {
-    if (e.keyCode==13) window.location.href="/search/"+e.target.value
-  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className={classes.header}>
       <AppBar position="static" className={classes.bar}>
-        <Toolbar>
+        <Toolbar className={classes.menuContainer}>
           <Box sx={{ flexGrow: 1 }}>
             {Routes.filter(route => route.showOnMenu).map((route, index) => (
               <NavLink exact to={route.path} className={classes.link} activeClassName={classes.activeLink}> {route.title} </NavLink>
@@ -293,10 +330,12 @@ export default function Header() {
           </List>  
         </div>
         </Drawer>
+        <div className={(isScrolled ? classes.subheaderScrolled : classes.subheaderContainer)}>
         <div className={classes.subheader}>
           <Box sx={{ flexGrow: 1, display:  'flex' }}>
             <AppBar position="static" className={classes.subheaderBar}>
               <Toolbar>
+              <Container>
                 <div className={classes.brandContainer}>
                   <div className={classes.titleContainerMobile}>
                     <Typography className={classes.title} variant="h6" noWrap>
@@ -314,6 +353,7 @@ export default function Header() {
                     </Typography>
                   </div>
                 </div>
+</Container>
               </Toolbar>
             </AppBar>
           </Box>
@@ -322,7 +362,7 @@ export default function Header() {
               <Socials />
             </div> */}
           </Box>
-        </div>
+        </div></div>
         {/* <div className={classes.topSocialsMobile}>
           <Socials />
         </div> */}

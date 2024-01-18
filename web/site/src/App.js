@@ -11,29 +11,75 @@ import TermsOfService from './pages/termsOfService';
 import Footer from './footer';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
-
+import ChevronUpIcon from '@material-ui/icons/ExpandLess';
+import ParallaxBackground from './components/parallax';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
+const mytheme = theme;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   notFound: {
     position: "absolute",
     left: "50%",
     top: "50%",
     transform: "translate(-50%,-50%)"
-  }
+  },
+  scrollToTop: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+    zIndex: 1000,
+    cursor: "pointer",
+    color: 'white',
+    background: '#014494',
+    padding: theme.spacing(1),
+    borderRadius: "50%",
+    border: "1px solid white",
+    "&:hover": {
+      background: 'white',
+      color: '#014494'
+    }
+  },
+  main: {
+    position: "absolute",
+    top: 0,
+    minHeight: "100vh",
+    width: "100%",
+  },
 }));
 
 export default function App() {
 const classes = useStyles();
 
+const [showScroll, setShowScroll] = useState(false)
+
+const checkScrollTop = () => {
+  if (!showScroll && window.pageYOffset > 400){
+    setShowScroll(true)
+  } else if (showScroll && window.pageYOffset <= 400){
+    setShowScroll(false)
+  }
+} 
+
+const scrollToTop = () =>{
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+useEffect(() => {
+  window.addEventListener('scroll', checkScrollTop)
+  return () => {
+    window.removeEventListener('scroll', checkScrollTop)
+  }
+})
+
   return (
     <ThemeProvider theme={theme}>
-    	<div>
+      <ParallaxBackground bgImage={"seal.png"} vhHeight={100}/>
+    	<div class={classes.main}>
     	<Router>
     	<SearchAppBar />
     	<Switch>
@@ -64,7 +110,13 @@ const classes = useStyles();
         </Switch>
         <Footer/>
     	</Router>
-    	</div>
+      {showScroll && 
+        <div 
+          onClick={scrollToTop} 
+          className={classes.scrollToTop}>
+          <ChevronUpIcon />
+        </div>}
+    </div>
       </ThemeProvider>
     );
 }

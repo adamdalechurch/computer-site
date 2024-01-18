@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import Rating from '@material-ui/lab/Rating';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Container, useTheme } from "@material-ui/core";
@@ -19,17 +14,13 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 150,
     margin: 20,
     display: "inline-block",
-    background: theme.palette.white.main,
+    background: 'transparent',
     color: "white",
     [theme.breakpoints.down('xs')]: {
       maxWidth: "100%",
       marginLeft: 30,
       marginRight: 30
     }
-  },
-  container: {
-    width: "90%",
-    margin: "auto"
   },
   media: {
     height: 375,
@@ -55,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
   seperator: {
     height: theme.spacing(12),
-    background: theme.palette.white.main,
+    background: 'transparent'
   },
   mainContent: {
     marginTop: 0,
@@ -69,13 +60,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'stretch', // Ensures that children stretch to fill the container
     flexWrap: 'wrap', // Allows wrapping for smaller screens
+    background: 'transparent',
   },
 }));
 
 export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
-  const [movies, setMovies] = useState(0);
 
   return (
     <div>

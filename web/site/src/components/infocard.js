@@ -6,11 +6,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-
 const useStyles = makeStyles((theme) => ({
     card: {
         margin: 20,
-        background: theme.palette.white.main,
+        background: 'white',
         color: "white",
         [theme.breakpoints.down('xs')]: {
             maxWidth: "100%",
