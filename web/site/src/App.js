@@ -78,7 +78,7 @@ useEffect(() => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ParallaxBackground bgImage={"seal.png"} vhHeight={100}/>
+      <ParallaxBackground bgImage={"bg_seal_white.png"} vhHeight={100}/>
     	<div class={classes.main}>
     	<Router>
     	<SearchAppBar />

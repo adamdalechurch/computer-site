@@ -1,6 +1,19 @@
-import React from "react";
+import React from "react"
+import { useEffect, useState } from "react";
+import { makeStyles } from '@material-ui/core/styles';
 
 export default function ParallaxBackground(props) {
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+
+  const resize = () => {
+    setScreenSize(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }
+  , []);
 
   return (
     <div
@@ -8,12 +21,12 @@ export default function ParallaxBackground(props) {
       style={{
         background: `url('${props.bgImage}')`,
         backgroundAttachment: "fixed",
-        backgroundPosition: "center",
+        backgroundPosition: "right bottom",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundSize: screenSize > 800 ? "50%" : "auto 80%",
         // add opacity:
         minHeight: props.vhHeight + "vh",
-
+        height: "100%",
         width: "100vw",
       }}>
       {props.children && props.children}

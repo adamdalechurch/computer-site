@@ -44,10 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     marginBottom: 20
   },
-  seperator: {
-    height: theme.spacing(12),
-    background: 'transparent'
-  },
+
   mainContent: {
     marginTop: 0,
     [theme.breakpoints.down('sm')]: {
@@ -96,7 +93,7 @@ export default function Home() {
             </Typography>
           </InfoCard>
 
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={12} style={{background:"transparent"}}>
           <Button variant="contained" color="secondary" className={classes.scheduleButton} onClick={() => {window.location.href = "/contact"}}>
             Schedule an Appointment
           </Button>
@@ -131,7 +128,6 @@ export default function Home() {
         </div>
        </Grid>
     </Container>
-    <div className={classes.seperator}></div> 
   </div>
   );
 }

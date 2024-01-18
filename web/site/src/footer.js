@@ -17,7 +17,6 @@ const current_year = new Date().getFullYear();
 const useStyles = makeStyles((theme) => ({
   mainLogo: {
     width: theme.spacing(0),
-    height: theme.spacing(50),
     background: 'transparent',
     marginTop: theme.spacing(2),
   },
@@ -68,6 +67,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 5,
     color: "white",
   },
+  footer: {
+    position: "relative",
+    width: "100%",
+    background: theme.palette.base.main,
+  },
 }));
 
 export default function Footer() {
@@ -83,7 +87,7 @@ export default function Footer() {
 
   return (
     <div className={classes.footer}>
-      <ParallaxBackground bgImage="seal_blue_bg.png" vhHeight="40">
+      <ParallaxBackground bgImage="bg_seal_blue.png" vhHeight="40">
         <Container>
           <Grid container spacing={3}>
           <FooterColumn>
@@ -96,8 +100,6 @@ export default function Footer() {
                 </NavLink>
               ))}
             </div>
-          </FooterColumn>
-          <FooterColumn style={{height: '1px', margin: ''}}>
           </FooterColumn>
           <FooterColumn>
             <Avatar alt="Veteran Owned Business" src="/vob.webp" className={classes.avatar} />
