@@ -37,7 +37,7 @@ export const InfoBox = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={props.cols ?? 4}>
         <div className={(props.isSecondary ? classes.infoBoxAlt : classes.infoBox )}>
         <Typography gutterBottom variant="h3" component="h2" className={classes.title}>
             {props.title}

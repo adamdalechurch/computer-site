@@ -62,7 +62,14 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(2),
     }
-}
+  },
+  infoBoxContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'stretch', // Ensures that children stretch to fill the container
+    flexWrap: 'wrap', // Allows wrapping for smaller screens
+  },
 }));
 
 export default function Home() {
@@ -75,8 +82,7 @@ export default function Home() {
       <Container>
       <Grid container spacing={3}>
         {/* Featured card 1 */}
-        <Grid item xs={12} md={6}>
-          <InfoCard title="Computer Repair" image={femaleUsingLaptop}>
+          <InfoCard cols={6} title="Computer Repair" image={femaleUsingLaptop}>
             <Typography variant="body2" component="p" className={classes.para}>
               We specialize in providing reliable, cost-effective computer repair services.
               We understand the importance of having reliable, 
@@ -86,11 +92,9 @@ export default function Home() {
               the most from your technology.
             </Typography>
           </InfoCard>
-        </Grid>
 
         {/* Featured card 2 */}
-        <Grid item xs={12} md={6}>
-          <InfoCard title="Computer Repair" image={techPeopleWorking}>
+          <InfoCard cols={6} title="Computer Repair" image={techPeopleWorking}>
             <Typography variant="body2" component="p" className={classes.para}>
               We specialize in providing reliable, cost-effective computer repair services.
               We understand the importance of having reliable, 
@@ -100,38 +104,30 @@ export default function Home() {
               the most from your technology.
             </Typography>
           </InfoCard>
-        </Grid>
 
         <Grid item xs={12} md={12}>
           <Button variant="contained" color="secondary" className={classes.scheduleButton} onClick={() => {window.location.href = "/contact"}}>
             Schedule an Appointment
           </Button>
         </Grid>
-
+        <div className={classes.infoBoxContainer}>
         {/* Info Boxes */}
-        <InfoBox isSecondary={true} title="Computer Repair">
+        <InfoBox isSecondary={true} title="About Us">
           <Typography variant="body2" component="p" className={classes.para}>
-            We specialize in providing reliable, cost-effective computer repair services.
-            We understand the importance of having reliable, 
-            efficient technology, and believe that technology should enhance your
-            life and not be a source of frustration. 
-            Our experienced technicians are dedicated to helping you get 
-            the most from your technology.
+            At Veteran Computer Solutions, we are passionate 
+            about providing quality IT support for all. Our team 
+            has extensive experience in IT management we work closely
+            with our clients to understand their unique challenges and provide customized solutions to meet their needs no matter how small or large. 
           </Typography>
         </InfoBox>
 
-        <InfoBox title="Computer Repair">
+        <InfoBox title="Our Vision">
           <Typography variant="body2" component="p" className={classes.para}>
-            We specialize in providing reliable, cost-effective computer repair services.
-            We understand the importance of having reliable, 
-            efficient technology, and believe that technology should enhance your
-            life and not be a source of frustration. 
-            Our experienced technicians are dedicated to helping you get 
-            the most from your technology.
+            At Veteran Computer Solutions, our vision is two-fold. To provide cost-effective computer solutions for home users and to empower businesses with the tools they need to succeed in an increasingly digital world. We believe that technology should enhance your life and all businesses should have access to quality IT support. We are committed to providing the right solutions no matter the size of the problem.
           </Typography>
         </InfoBox>
 
-        <InfoBox isSecondary={true} title="Computer Repair">
+        <InfoBox isSecondary={true} title="Services">
           <Typography variant="body2" component="p" className={classes.para}>
             We specialize in providing reliable, cost-effective computer repair services.
             We understand the importance of having reliable, 
@@ -141,6 +137,7 @@ export default function Home() {
             the most from your technology.
           </Typography>
         </InfoBox>
+        </div>
        </Grid>
     </Container>
     <div className={classes.seperator}></div> 

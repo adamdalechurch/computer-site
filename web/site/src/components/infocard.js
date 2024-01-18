@@ -44,7 +44,7 @@ export const InfoCard = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={props.cols || 4}>
         <Card className={classes.card}>
             <CardMedia
                 className={classes.media}
