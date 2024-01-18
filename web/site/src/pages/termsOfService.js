@@ -18,21 +18,13 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(8),
     background: theme.palette.white.main,
   },
-  headerThree: {
-    marginTop: theme.spacing(4),
-    marginBottom: theme.spacing(2),
-    fontSize: theme.spacing(4),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(3),
-    },
-  },
   para: {
     fontSize: theme.spacing(2),
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    fontSize: theme.spacing(3),
+    fontSize: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(2),
+      fontSize: theme.spacing(1),
     },
   },
 }));
@@ -54,7 +46,7 @@ const TermsOfService = () => {
         By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
       </Typography>
 
-      <Typography variant="h3" className={classes.headerThree}>
+      <Typography variant="h2" className={classes.pageHeader}>
         1. Your Use of the Service
       </Typography>
 
@@ -62,7 +54,7 @@ const TermsOfService = () => {
         You must provide accurate and complete information when using the Service. You are responsible for maintaining the confidentiality of your account and password.
       </Typography>
 
-      <Typography variant="h3" className={classes.headerThree}>
+      <Typography variant="h2" className={classes.pageHeader}>
         2. Privacy Policy
       </Typography>
 
@@ -72,7 +64,7 @@ const TermsOfService = () => {
 
       {/* Continue with additional sections based on your specific terms and conditions */}
       
-      <Typography variant="h3" className={classes.headerThree}>
+      <Typography variant="h2" className={classes.pageHeader}>
         3. Changes to the Terms of Service
       </Typography>
 
@@ -80,7 +72,7 @@ const TermsOfService = () => {
         We may update our Terms of Service from time to time. It is your responsibility to review these Terms periodically for changes. Your continued use of the Service following the posting of changes constitutes acceptance of those changes.
       </Typography>
 
-      <Typography variant="h3" className={classes.headerThree}>
+      <Typography variant="h2" className={classes.pageHeader}>
         4. Contact Us
       </Typography>
 

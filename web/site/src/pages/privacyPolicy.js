@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
   para: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    fontSize: theme.spacing(3),
+    fontSize: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(2),
+      fontSize: theme.spacing(1.5),
     },
   },
 }));
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
         The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at {process.env.REACT_APP_SITE_URL}, unless otherwise defined in this Privacy Policy.
       </Typography>
 
-      <Typography variant="h3">
+      <Typography variant="h2" className={classes.pageHeader}>
         Information Collection and Use
       </Typography>
 
@@ -61,7 +61,7 @@ const PrivacyPolicy = () => {
         For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, phone number, and postal address. The information that we collect will be used to contact or identify you.
       </Typography>
 
-      <Typography variant="h3">
+      <Typography variant="h2" className={classes.pageHeader}>
         Log Data
       </Typography>
 
@@ -71,7 +71,7 @@ const PrivacyPolicy = () => {
 
       {/* Continue with the rest of the sections */}
       
-      <Typography variant="h3">
+      <Typography variant="h2" className={classes.pageHeader}>
         Changes to This Privacy Policy
       </Typography>
 
@@ -83,7 +83,7 @@ const PrivacyPolicy = () => {
         Our Privacy Policy was created with the help of the Privacy Policy Template.
       </Typography>
 
-      <Typography variant="h3">
+      <Typography variant="h4" className={classes.pageHeader}>
         Contact Us
       </Typography>
 

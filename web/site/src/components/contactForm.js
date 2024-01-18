@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.black.main,
     marginTop: 10,
     marginBottom: 15,
-    fontSize: theme.spacing(3),
+    fontSize: theme.spacing(2.5),
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2),
     },

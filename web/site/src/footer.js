@@ -1,19 +1,8 @@
 import React, { useEffect, useState, useScrollTrigger } from "react";
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import {fade, makeStyles, useTheme} from '@material-ui/core/styles';
 import {Container} from "@material-ui/core";
-import PhoneIcon from '@material-ui/icons/Phone';
 import Link from '@material-ui/core/Link';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Box from '@material-ui/core/Box';
-import {Button} from "@material-ui/core";
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/LinkedIn';
 import {FooterColumn} from "./components/footerColumn";
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
@@ -103,6 +92,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Footer() {
   const classes = useStyles();
   const theme = useTheme();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
 
   return (
     <div className={classes.footer}>
