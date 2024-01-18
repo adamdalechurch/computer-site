@@ -34,15 +34,15 @@ const PrivacyPolicy = () => {
   return (
     <Container>
       <Typography variant="h2" className={classes.pageHeader}>
-        Privacy Policy of ComputerSite
+        Privacy Policy of {process.env.REACT_APP_SITE_NAME}
       </Typography>
 
       <Typography variant="body1" className={classes.para}>
-        ComputerSite operates the www.computersite.com website, which provides the SERVICE.
+        {process.env.REACT_APP_SITE_NAME} operates the {process.env.REACT_APP_SITE_URL} website, which provides the SERVICE.
       </Typography>
 
       <Typography variant="body1" className={classes.para}>
-        This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the ComputerSite website.
+        This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the {process.env.REACT_APP_SITE_NAME} website.
       </Typography>
 
       <Typography variant="body1" className={classes.para}>
@@ -50,7 +50,7 @@ const PrivacyPolicy = () => {
       </Typography>
 
       <Typography variant="body1" className={classes.para}>
-        The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at www.computersite.com, unless otherwise defined in this Privacy Policy.
+        The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at {process.env.REACT_APP_SITE_URL}, unless otherwise defined in this Privacy Policy.
       </Typography>
 
       <Typography variant="h3">

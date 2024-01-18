@@ -43,11 +43,11 @@ const TermsOfService = () => {
   return (
     <Container>
       <Typography variant="h2" className={classes.pageHeader}>
-        Terms of Service of ComputerSite
+        Terms of Service of {process.env.REACT_APP_SITE_NAME}
       </Typography>
 
       <Typography variant="body1" className={classes.para}>
-        Welcome to ComputerSite! These Terms of Service govern your use of the www.computersite.com website and the services provided (the "Service").
+        Welcome to {process.env.REACT_APP_SITE_NAME}! These Terms of Service govern your use of the {process.env.REACT_APP_SITE_URL} website and the services provided (the "Service").
       </Typography>
 
       <Typography variant="body1" className={classes.para}>
