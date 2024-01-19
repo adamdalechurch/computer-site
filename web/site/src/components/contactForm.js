@@ -104,7 +104,7 @@ const ContactForm = () => {
       <Typography variant="body1" className={classes.para}>
         Fill out the form according to your 
         needs and we will answer your inquiry the same 
-        business day.
+        business day or email support@veterancomputersolutions.com.
       </Typography>
       <TextField
         className={classes.input}
