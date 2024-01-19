@@ -8,6 +8,7 @@ import { InfoBox } from '../components/infobox';
 import femaleUsingLaptop from '../img/female_using_laptop.webp';
 import techPeopleWorking from '../img/tech_people_working.webp';
 import { InfoCard } from '../components/infocard';
+import ParallaxBackground from '../components/parallax';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -67,7 +68,7 @@ export default function Home() {
 
   return (
     <div>
-      <Container>
+      <ParallaxBackground>
       <Grid container spacing={3}>
         {/* Featured card 1 */}
           <InfoCard cols={6} title="Home Computer Solutions" image={femaleUsingLaptop}>
@@ -117,7 +118,7 @@ export default function Home() {
         </InfoBox>
         </div>
        </Grid>
-    </Container>
+    </ParallaxBackground>
     <div style={{height: 100}}>
     </div>
   </div>

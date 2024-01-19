@@ -13,6 +13,8 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme';
 import ChevronUpIcon from '@material-ui/icons/ExpandLess';
 import ParallaxBackground from './components/parallax';
+import ReactGA from 'react-ga';
+
 import {
   BrowserRouter as Router,
   Switch,

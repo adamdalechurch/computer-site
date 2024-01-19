@@ -8,6 +8,7 @@ import itAssessments from '../img/it_assessments.webp';
 import irProjectManagement from '../img/it_project_management.webp';
 import itStrategyAndPlanning from '../img/it_strategy_and_planning.webp';
 import backupSolutions from '../img/backup_solutions.webp';
+import ParallaxBackground from '../components/parallax';
 
 const useStyles = makeStyles((theme) => ({
   pageHeader: {
@@ -45,7 +46,7 @@ export default function ITConsulting() {
 
   return (
     <div align="center">
-      <Container>
+      <ParallaxBackground>
         <Typography variant="h2" className={classes.pageHeader}>
           IT Consulting
         </Typography>
@@ -91,7 +92,7 @@ export default function ITConsulting() {
           are available when you need them while limiting business downtime.
         </InfoCard>
       </Grid>
-    </Container>
+    </ParallaxBackground>
   </div>
   );
 }

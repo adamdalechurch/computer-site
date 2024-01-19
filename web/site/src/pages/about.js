@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
+import ParallaxBackground from '../components/parallax';
 
 const useStyles = makeStyles((theme) => ({
   greyBox1: {
@@ -72,16 +73,13 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.spacing(2),
     },
   },
-  main: {
-    height: "calc(100vh - " +theme.spacing(60)+"px)"
-  },
 }));
 
 export default function About() {
   const classes = useStyles();
 
   return (
-  <Container class={classes.main}>
+  <ParallaxBackground class={classes.main}>
     <div className={classes.greyBox1}>
       <Typography variant="h4" className={classes.pageHeader}>
         About {process.env.REACT_APP_SITE_NAME}
@@ -111,6 +109,6 @@ export default function About() {
     </Typography>
   </div>
   <div className={classes.seperator2}></div>
-</Container>
+</ParallaxBackground>
 );
 }

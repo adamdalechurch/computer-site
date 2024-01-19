@@ -2,17 +2,15 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
+import ParallaxBackground from '../components/parallax';
 
 const useStyles = makeStyles((theme) => ({
   pageHeader: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(2),
-    fontSize: theme.spacing(5),
+    fontSize: theme.spacing(3),
     fontWeight: '550',
 
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(4),
-    },
   },
   seperator: {
     height: theme.spacing(8),
@@ -23,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
     fontSize: theme.spacing(2),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(1),
-    },
   },
 }));
 
@@ -33,7 +28,7 @@ const TermsOfService = () => {
   const classes = useStyles();
 
   return (
-    <Container>
+    <ParallaxBackground>
       <Typography variant="h2" className={classes.pageHeader}>
         Terms of Service of {process.env.REACT_APP_SITE_NAME}
       </Typography>
@@ -81,7 +76,7 @@ const TermsOfService = () => {
       </Typography>
 
       <div className={classes.seperator}></div>
-    </Container>
+    </ParallaxBackground>
   );
 };
 

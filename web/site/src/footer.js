@@ -15,87 +15,81 @@ import ParallaxBackground from "./components/parallax";
 const current_year = new Date().getFullYear();
 
 const useStyles = makeStyles((theme) => ({
-  mainLogo: {
-    width: theme.spacing(0),
-    background: 'transparent',
-    marginTop: theme.spacing(2),
-  },
-  link: {
-    color: "white",
-    fontWeight: "normal",
-    textDecoration: "none",
-    margin: 15,
-    display: 'block',
-  },
-  linkActive: {
-    fontWeight: "bold",
-    textDecoration: "underline",
-  },
-  bottomSocials: {
-  // make this div float in the center:
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+mainLogo: {
+  width: theme.spacing(0),
+  background: 'transparent',
+  marginTop: theme.spacing(2),
+},
+link: {
+  color: "white",
+  fontWeight: "normal",
+  textDecoration: "none",
+  margin: 15,
+  display: 'block',
+},
+linkActive: {
+  fontWeight: "bold",
+  textDecoration: "underline",
+},
+bottomSocials: {
+// make this div float in the center:
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 
-    fontSize:theme.spacing(1),
-  },
-  avatar: {
-    border: "2px solid white",
-    width: theme.spacing(16),
-    height: "auto",
-    margin: "auto",
-  },
-  policyLinks: {
-    textAlign: "center",
-    marginTop: 10,
-    marginBottom: 15,
-    width: "100%",
-    display: "block",
-  },
-  whiteHyperlink: {
-    color: "white",
-    margin: 5,
-    display: 'inline-block',
-    // add an opaque background to the link:
-    [theme.breakpoints.down('sm')]: {
-      background: fade(theme.palette.secondary.main, 0.5),
-      padding: theme.spacing(1),
-      borderRadius: theme.spacing(1),
-    },   
-  },
-  copyright:{
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    textAlign: "center",
+  fontSize:theme.spacing(1),
+},
+avatar: {
+  border: "2px solid white",
+  width: theme.spacing(16),
+  height: "auto",
+  margin: "auto",
+},
+policyLinks: {
+  textAlign: "center",
+  marginTop: 10,
+  marginBottom: 15,
+  width: "100%",
+  display: "block",
+},
+whiteHyperlink: {
+  color: "white",
+  margin: 5,
+  display: 'inline-block',
+  // add an opaque background to the link:
+  [theme.breakpoints.down('sm')]: {
+    background: fade(theme.palette.secondary.main, 0.5),
+    padding: theme.spacing(1),
+    borderRadius: theme.spacing(1),
+  },   
+},
+copyright:{
+  position: "absolute",
+  bottom: 0,
+  width: "100%",
+  textAlign: "center",
 
-    marginTop: 20,
-    marginBottom: 5,
-    color: "white",
-  },
-  footer: {
-    width: "100%",
-    background: "#014494"
-  },
+  marginTop: 20,
+  marginBottom: 5,
+  color: "white",
+},
+footer: {
+  width: "100%",
+  maxWidth: "100%",
+  background: "#014494"
+},
 bottomMenu:{
-  [theme.breakpoints.down('xs')]: {
-         background: fade(theme.palette.secondary.main, 0.5),
-      padding: theme.spacing(1),
-      borderRadius: theme.spacing(1),
-  }
+[theme.breakpoints.down('xs')]: {
+  background: fade(theme.palette.secondary.main, 0.5),
+  padding: theme.spacing(1),
+  borderRadius: theme.spacing(1),
+}
 },
 }));
 
 export default function Footer() {
   const classes = useStyles();
   const theme = useTheme();
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
 
   return (
     <div className={classes.footer}>

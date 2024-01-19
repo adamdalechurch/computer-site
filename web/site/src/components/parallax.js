@@ -1,7 +1,7 @@
 import React from "react"
 import { useEffect, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-
+import { Container } from "@material-ui/core";
 export default function ParallaxBackground(props) {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
@@ -19,7 +19,7 @@ export default function ParallaxBackground(props) {
     <div
       className="parallaxBgg"
       style={{
-        background: `url('${props.bgImage}')`,
+        // background: `url('${props.bgImage}')`,
         backgroundAttachment: "fixed",
         backgroundPosition: "right bottom",
         backgroundRepeat: "no-repeat",
@@ -29,7 +29,9 @@ export default function ParallaxBackground(props) {
         height: "100%",
         width: "100vw",
       }}>
-      {props.children && props.children}
+      <Container>
+        {props.children && props.children}
+      </Container>
     </div>
   );
 }

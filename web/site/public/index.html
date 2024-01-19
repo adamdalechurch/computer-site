@@ -64,7 +64,7 @@
      body {
   margin: 0; /* Remove default margin to prevent body from extending */
   overflow-x: hidden;
-    width: '95vw';
+    width: '100%';
 
 }
       .grecaptcha-badge {
@@ -93,6 +93,10 @@
     </style>
   <body>
   </body>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXPEP94WWH"></script> <script>
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date()); gtag('config', 'G-RXPEP94WWH'); 
+  </script>
   <!-- <script>
     const sitekey = ""; //Your RECAPTCHA V3 Site Key
     function getToken() {
@@ -104,6 +108,7 @@
         });
       });
     }
+
 
      const constantMock = window.fetch;
      window.fetch = async function(url,data) {

@@ -10,6 +10,7 @@ import backupSolutions from '../img/backup_solutions.webp';
 import networking from '../img/networking.webp';
 import preventativeMaintenance from '../img/preventative_maintenance.webp';
 import training from '../img/training.webp';
+import ParallaxBackground from '../components/parallax';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +50,7 @@ export default function HomeSolutions() {
 
   return (
     <div align="center">
-      <Container>
+      <ParallaxBackground>
         <Typography variant="h2" className={classes.pageHeader}>
           PICKUP - REMOTE - IN-HOME SERVICE AVAILABLE
         </Typography>
@@ -106,7 +107,7 @@ export default function HomeSolutions() {
             allows you to use technology to its fullest extent.
           </InfoCard>
         </Grid>  
-    </Container>
+    </ParallaxBackground>
   </div>
   );
 }

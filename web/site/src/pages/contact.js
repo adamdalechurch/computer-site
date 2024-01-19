@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import ContactForm from '../components/contactForm';
+import ParallaxBackground from '../components/parallax';
 
 const useStyles = makeStyles((theme) => ({
   contact: {  
@@ -15,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   main: {
-    height: "calc(100vh - " +theme.spacing(60)+"px)"
+    height: "100vh",
   },
 }));
 
 export default function Contact() {
   const classes = useStyles();
   return (
-    <Container className={classes.main}>
+    <ParallaxBackground className={classes.main}>'
       <div className={classes.contact}>
         <ContactForm/>
       </div>
-    </Container>
+    </ParallaxBackground>
   );
 }

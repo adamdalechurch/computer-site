@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '800px',
     margin: 'auto',
     fontWeight: '550',
+    height: '100%',
     marginTop: theme.spacing(2),
   },
   input: {
@@ -59,12 +60,17 @@ const ContactForm = () => {
     setSnackbarOpen(true);
     setFormLoading(false);
 
-    // submit form to formsubmit.co
-    fetch(process.env.REACT_APP_FORMSUBMIT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+
+    fetch("process.env.REACT_APP_FORMSUBMIT_URL", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: "FormSubmit",
+            message: "I'm from Devro LABS"
+        })
     })
     .then(response => {
       setFormData({ name: '', email: '', message: '' });
@@ -86,7 +92,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
+    <form className={classes.form} method="POST" action={process.env.REACT_APP_FORMSUBMIT_URL}>
       <Typography variant="h2" className={classes.pageHeader}>
         Contact Us
       </Typography>    

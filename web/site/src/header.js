@@ -179,6 +179,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     margin: theme.spacing(2),
     fontSize: theme.spacing(2),
+    marginRight: theme.spacing(4),
   },
   phoneIcon: {
     marginBottom: '2px', // adjust this value as needed
