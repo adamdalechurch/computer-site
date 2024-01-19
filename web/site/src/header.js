@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useScrollTrigger } from "react";
+import React, { useState, useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,7 +12,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Box from '@material-ui/core/Box';
 import { Button } from "@material-ui/core";
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import {Routes} from './routes';
 import Socials from "./components/socials";
 import Container from '@material-ui/core/Container';
@@ -203,6 +203,9 @@ const useStyles = makeStyles((theme) => ({
     }
   },
  subheaderContainer: {
+    margin: '64px 0',
+  },
+ subheaderContainerHome: {
     marginTop: `calc(30vh - 64px)`, // Adjust '64px' to your header's height
     marginBottom: `calc(40vh - 64px)`,
     transition: 'margin-top 0.9s', // Smooth transition for the subheader
@@ -212,10 +215,11 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     }
   },
-  subheaderScrolled: {
+  subheaderScrolledHome: {
     transition: 'margin-top 0.9s', // Smooth transition for the subheader=
-    marginTop: '72px',
-    marginBottom: 0,
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: `50vh`,
+    },
   },
   bar: {
     background: theme.palette.secondary.main,
@@ -273,10 +277,13 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const location = useLocation();
+  const current_page = location.pathname.split("/")[1]; 
+
   const handleScroll = () => {
     const offset = window.pageYOffset;
     console.log(offset);
-    setIsScrolled(offset > 100); // Adjust scroll offset as needed
+    setIsScrolled(offset > 1); // Adjust scroll offset as needed
   };
 
   const toggleDrawer = (open) => (event) => {
@@ -330,7 +337,11 @@ export default function Header() {
           </List>  
         </div>
         </Drawer>
-        <div className={(isScrolled ? classes.subheaderScrolled : classes.subheaderContainer)}>
+        <div className={(
+          current_page === "" ? 
+            isScrolled ? classes.subheaderScrolledHome : classes.subheaderContainerHome
+          : classes.subheaderContainer
+        )}>
         <div className={classes.subheader}>
           <Box sx={{ flexGrow: 1, display:  'flex' }}>
             <AppBar position="static" className={classes.subheaderBar}>

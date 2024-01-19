@@ -56,6 +56,12 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     margin: 5,
     display: 'inline-block',
+    // add an opaque background to the link:
+    [theme.breakpoints.down('sm')]: {
+      background: fade(theme.palette.secondary.main, 0.5),
+      padding: theme.spacing(1),
+      borderRadius: theme.spacing(1),
+    },   
   },
   copyright:{
     position: "absolute",
@@ -68,10 +74,16 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   footer: {
-    position: "relative",
     width: "100%",
-    background: theme.palette.base.main,
+    background: "#014494"
   },
+bottomMenu:{
+  [theme.breakpoints.down('xs')]: {
+         background: fade(theme.palette.secondary.main, 0.5),
+      padding: theme.spacing(1),
+      borderRadius: theme.spacing(1),
+  }
+},
 }));
 
 export default function Footer() {
@@ -89,7 +101,7 @@ export default function Footer() {
     <div className={classes.footer}>
       <ParallaxBackground bgImage="bg_seal_blue.png" vhHeight="40">
         <Container>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} className={classes.footerColumnContainer}>
           <FooterColumn>
             {/*Bottom Menu */}
             <div className={classes.bottomMenu}>
@@ -124,7 +136,6 @@ export default function Footer() {
       <Socials />
       </Typography>
       </ParallaxBackground>
-
     </div>
   );
 }

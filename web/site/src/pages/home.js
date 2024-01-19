@@ -70,26 +70,16 @@ export default function Home() {
       <Container>
       <Grid container spacing={3}>
         {/* Featured card 1 */}
-          <InfoCard cols={6} title="Computer Repair" image={femaleUsingLaptop}>
+          <InfoCard cols={6} title="Home Computer Solutions" image={femaleUsingLaptop}>
             <Typography variant="body2" component="p" className={classes.para}>
-              We specialize in providing reliable, cost-effective computer repair services.
-              We understand the importance of having reliable, 
-              efficient technology, and believe that technology should enhance your
-              life and not be a source of frustration. 
-              Our experienced technicians are dedicated to helping you get 
-              the most from your technology.
+              We specialize in providing reliable, cost-effective computer repair services. We understand the importance of having reliable, efficient technology, and believe that technology should enhance your life and not be a source of frustration. Our experienced technicians are dedicated to helping you get the most from your technology.
             </Typography>
           </InfoCard>
 
         {/* Featured card 2 */}
-          <InfoCard cols={6} title="Computer Repair" image={techPeopleWorking}>
+          <InfoCard cols={6} title="Business IT Support" image={techPeopleWorking}>
             <Typography variant="body2" component="p" className={classes.para}>
-              We specialize in providing reliable, cost-effective computer repair services.
-              We understand the importance of having reliable, 
-              efficient technology, and believe that technology should enhance your
-              life and not be a source of frustration. 
-              Our experienced technicians are dedicated to helping you get 
-              the most from your technology.
+              We provide comprehensive Business IT Support services to help companies of all sizes stay ahead in today's digital landscape. Our team of experienced IT professionals are available to ensure your systems are always up and running, and can provide tailored solutions to meet your specific business needs. We believe that all businesses should have access to quality IT Support, and we are here to help you succeed.
             </Typography>
           </InfoCard>
 
@@ -128,6 +118,8 @@ export default function Home() {
         </div>
        </Grid>
     </Container>
+    <div style={{height: 100}}>
+    </div>
   </div>
   );
 }
